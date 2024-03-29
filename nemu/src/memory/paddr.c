@@ -51,7 +51,7 @@ void init_mem() {
 }
 
 word_t paddr_read(paddr_t addr, int len) {
-  if (likely(in_pmem(addr))) return pmem_read(addr, len);
+  if (likely(in_pmem(addr))) return pmem_read(addr, len);//检查地址是否在物理内存范围内。如果是（通过in_pmem函数），则调用pmem_read函数从物理内存中读取数据。
   IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
   out_of_bound(addr);
   return 0;

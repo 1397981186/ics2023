@@ -33,13 +33,13 @@ static char* rl_gets() {
     line_read = NULL;
   }
 
-  line_read = readline("(nemu) ");
+  line_read = readline("(nemu) ");//从命令行读取用户的输入。
 
   if (line_read && *line_read) {
     add_history(line_read);
   }
 
-  return line_read;
+  return line_read;//返回指向输入行的指针。这允许调用者访问用户输入的内容。
 }
 
 static int cmd_c(char *args) {
@@ -102,11 +102,11 @@ void sdb_mainloop() {
     return;
   }
 
-  for (char *str; (str = rl_gets()) != NULL; ) {
+  for (char *str; (str = rl_gets()) != NULL; ) {//直到rl_gets()返回NULL（用户没有输入）
     char *str_end = str + strlen(str);
 
     /* extract the first token as the command */
-    char *cmd = strtok(str, " ");
+    char *cmd = strtok(str, " ");//使用strtok函数以空格为分隔，将用户输入分割成一个个的标记（tokens）。第一个标记被认为是命令cmd。
     if (cmd == NULL) { continue; }
 
     /* treat the remaining string as the arguments,
