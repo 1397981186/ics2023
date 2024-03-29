@@ -105,7 +105,7 @@ void init_monitor(int argc, char *argv[]) {
   parse_args(argc, argv);
 
   /* Set random seed. */
-  init_rand();
+  init_rand();// 设置随机种子
 
   /* Open the log file. */
   init_log(log_file);

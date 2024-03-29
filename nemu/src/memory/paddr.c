@@ -46,7 +46,7 @@ void init_mem() {
   pmem = malloc(CONFIG_MSIZE);
   assert(pmem);
 #endif
-  IFDEF(CONFIG_MEM_RANDOM, memset(pmem, rand(), CONFIG_MSIZE));
+  IFDEF(CONFIG_MEM_RANDOM, memset(pmem, rand(), CONFIG_MSIZE));//如果定义了宏 CONFIG_MEM_RANDOM，那么执行 memset 函数，将内存区间 pmem 的大小为 CONFIG_MSIZE 的部分设置为 rand() 生成的随机值。
   Log("physical memory area [" FMT_PADDR ", " FMT_PADDR "]", PMEM_LEFT, PMEM_RIGHT);
 }
 
