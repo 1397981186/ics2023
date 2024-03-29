@@ -55,6 +55,7 @@ void init_regex() {
 
   for (i = 0; i < NR_REGEX; i ++) {
     ret = regcomp(&re[i], rules[i].regex, REG_EXTENDED);
+    //调用 regcomp 函数编译 rules[i].regex 字符串表达的正则表达式，编译结果保存在 re[i] 中，如果编译成功，函数返回0，否则返回错误代码，这个返回值被赋给了 ret。
     if (ret != 0) {
       regerror(ret, &re[i], error_msg, 128);
       panic("regex compilation failed: %s\n%s", error_msg, rules[i].regex);
