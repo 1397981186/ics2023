@@ -19,6 +19,7 @@
 #include <readline/history.h>
 #include "sdb.h"
 #include <string.h>
+#include <memory/vaddr.h>
 
 static int is_batch_mode = false;
 
@@ -81,6 +82,23 @@ static int cmd_info(char *args){
 }
 
 
+static int cmd_x(char *args){	
+	char *N = strtok(NULL," ");
+	char *vaddr= strtok(NULL," ");
+	if(N==NULL || vaddr == NULL){
+		printf("Must be: x N EXPR \r\n");
+		return 0;
+	}
+	int num;
+	vaddr_t addr;
+	sscanf(N,"%d",&num);
+	sscanf(vaddr,"%x",&addr);
+	for(int i=0;i<num;i++){
+		printf("0x%08x\r\n",vaddr_read(addr+i*4,4));
+	}
+	return 0;
+
+}
 
 static struct {
   const char *name;
@@ -92,6 +110,7 @@ static struct {
   { "q", "Exit NEMU", cmd_q },
   { "si", "single exec", cmd_si },
   { "info", "info r/w show regs/watch", cmd_info },
+  { "x", "scan memory", cmd_x },
 
 
   /* TODO: Add more commands */
