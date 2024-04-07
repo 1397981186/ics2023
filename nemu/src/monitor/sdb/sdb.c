@@ -91,7 +91,7 @@ static struct {
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
   { "si", "single exec", cmd_si },
-  { "info -r/w", "show regs/watch", cmd_info },
+  { "info", "info r/w show regs/watch", cmd_info },
 
 
   /* TODO: Add more commands */
