@@ -188,6 +188,9 @@ void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();
 
+	char * test_exec = "123*(123+14)";
+	bool ifsucess = true;
+	expr(test_exec,&ifsucess);
   /* Initialize the watchpoint pool. */
   init_wp_pool();
 }
