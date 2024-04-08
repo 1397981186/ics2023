@@ -103,7 +103,17 @@ static bool make_token(char *e) {
          */
 
         switch (rules[i].token_type) {
-          default: TODO();
+					case TK_NUM:
+						Assert((substr_len< 32),"%s","token max 32, but rules match more than 32");
+						strncpy(tokens[nr_token].str,substr_start,substr_len);
+						tokens[nr_token].str[substr_len]= '\0';
+						tokens[nr_token].type = rules[i].token_type;
+						nr_token++;
+						break;
+          default: 
+						tokens[nr_token].type = rules[i].token_type;
+						nr_token++;
+						break;
         }
 
         break;
