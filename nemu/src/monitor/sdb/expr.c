@@ -196,6 +196,7 @@ static bool check_parentheses(int p,int q){
 }
 
 Eval_Res eval(int p,int q){
+	printf("start eval \n");
 	Eval_Res result;
 	result.ifsuccess = false;
 	result.res = 0;
