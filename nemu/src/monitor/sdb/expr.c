@@ -189,7 +189,7 @@ static bool check_parentheses(int p,int q){
 			}
 
 			if(cnt ==0){
-				return false;
+				return i==q;
 			}
 		}
 	}
