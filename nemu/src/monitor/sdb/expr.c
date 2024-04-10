@@ -156,11 +156,14 @@ static int find_op(int p, int q){
 			while(1){//bu yao kuo hao nei rong
 				if(tokens[i].type== '('){
 					cnt ++;
+					i++;
 				}else if(tokens[i].type==')'){
 					cnt --;
+					i++;
 				}
 
 				if(cnt ==0){
+					i--;
 					break;
 				}
 			}
