@@ -203,8 +203,8 @@ Eval_Res eval(int p,int q){
 	Eval_Res result;
 	result.ifsuccess = false;
 	result.res = 0;
-	//Eval_Res val1;
-	//Eval_Res val2;
+	Eval_Res val1;
+	Eval_Res val2;
 	int op = 0;
 	if(p>q){
 		result.ifsuccess = false;
@@ -224,8 +224,22 @@ Eval_Res eval(int p,int q){
 	}else {
 		printf("excute op  \n");
 		op = find_op(p,q) ;
-		printf("p,q is %d\t%d, op place is %d \n",p,q,op);
-		
+		printf("p,q is %d %d, op place is %d \n",p,q,op);
+		val1 = eval(p,op-1);
+		val2 = eval(op+1,q);
+		if(val1.ifsuccess && val2.ifsuccess){
+			result.ifsuccess = true;
+		}else{
+			return result;
+		}
+
+		switch(tokens[op].type)	{
+			case '+': result.res = val1.res + val2.res;break;
+			case '-': result.res = val1.res - val2.res;break;
+			case '*': result.res = val1.res * val2.res;break;
+			case '/': result.res = val1.res / val2.res;break;
+			default: printf("invalid operator\n");break;
+		}
 	}
 	return result;	
 
