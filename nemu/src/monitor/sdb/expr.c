@@ -197,6 +197,8 @@ static bool check_parentheses(int p,int q){
 
 Eval_Res eval(int p,int q){
 	Eval_Res result;
+	result.ifsuccess = false;
+	result.res = 0;
 	//Eval_Res val1;
 	//Eval_Res val2;
 	int op = 0;
@@ -210,6 +212,7 @@ Eval_Res eval(int p,int q){
 			result.ifsuccess = true;
 			result.res = strtol(tokens[p].str,NULL,10);
 		}
+		return result;
 	}else if(check_parentheses(p,q)){
 		return eval(p+1,q-1);
 	}else {
