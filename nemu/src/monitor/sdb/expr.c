@@ -220,6 +220,7 @@ Eval_Res eval(int p,int q){
 		printf("is in parenthese \n");
 		return eval(p+1,q-1);
 	}else {
+		printf("excute op  \n");
 		op = find_op(p,q) ;
 		printf("p,q is %d\t%d, op place is %d \n",p,q,op);
 		
