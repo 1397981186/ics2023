@@ -192,6 +192,7 @@ void init_sdb() {
 	char * test_exec = "123*(123+14)";
 	bool ifsucess = true;
 	expr_res_val = expr(test_exec,&ifsucess);
+	printf("result exec is %d \n",ifsucess);
 	printf("result exec is %d \n",expr_res_val);
   /* Initialize the watchpoint pool. */
   init_wp_pool();
