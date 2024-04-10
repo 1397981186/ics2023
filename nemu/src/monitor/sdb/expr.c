@@ -178,6 +178,7 @@ static int find_op(int p, int q){
 }
 
 static bool check_parentheses(int p,int q){
+	printf("checking parenthese \n");
 	int cnt = 0;
 	if(tokens[p].type == '('&& tokens[q].type== ')'){
 		for(int i =p;i<=q;i++){
@@ -216,6 +217,7 @@ Eval_Res eval(int p,int q){
 		}
 		return result;
 	}else if(check_parentheses(p,q)){
+		printf("is in parenthese \n");
 		return eval(p+1,q-1);
 	}else {
 		op = find_op(p,q) ;
