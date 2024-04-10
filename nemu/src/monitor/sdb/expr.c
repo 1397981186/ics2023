@@ -129,14 +129,110 @@ static bool make_token(char *e) {
   return true;
 }
 
+typedef struct EVAL_RES{
+	int res;
+	bool ifsuccess;
+}Eval_Res;
+
+static int op_pir(int op){
+	// *,/
+	// +,- 
+	if(op == '*' || op == '/')	{
+		return 1;
+	}else if(op == '+' || op == '-'){
+		return 0;
+	}else
+		return 999;
+}
+
+static int find_op(int p, int q){
+	int pri = -1;
+	int cnt = 0;
+	int place = p;
+	for(int i = p;i<=q;i++){
+		if(tokens[i].type == '('){
+			cnt++;
+			i++;
+			while(1){//bu yao kuo hao nei rong
+				if(tokens[i].type== '('){
+					cnt ++;
+				}else if(tokens[i].type==')'){
+					cnt --;
+				}
+
+				if(cnt ==0){
+					break;
+				}
+			}
+			if(i>q){
+				break;
+			}
+		}else if(tokens[i].type ==TK_NUM ){
+			continue;
+		}else if(op_pir(tokens[i].type) <= pri){
+			pri = op_pir(tokens[i].type);
+			place = i;	
+		}
+	}
+	return place;
+}
+
+static bool check_parentheses(int p,int q){
+	int cnt = 0;
+	if(tokens[p].type == '('&& tokens[q].type== ')'){
+		for(int i =p;i<=q;i++){
+			if(tokens[i].type== '('){
+				cnt ++;
+			}else if(tokens[i].type==')'){
+				cnt --;
+			}
+
+			if(cnt ==0){
+				return false;
+			}
+		}
+	}
+	return false;
+}
+
+Eval_Res eval(int p,int q){
+	Eval_Res result;
+	//Eval_Res val1;
+	//Eval_Res val2;
+	int op = 0;
+	if(p>q){
+		result.ifsuccess = false;
+		result.res = 0;
+		printf("p bigger than q, expr.c:eval \r\n");
+		return result;	
+	}else if(p == q){
+		if(tokens[p].type == TK_NUM){
+			result.ifsuccess = true;
+			result.res = strtol(tokens[p].str,NULL,10);
+		}
+	}else if(check_parentheses(p,q)){
+		return eval(p+1,q-1);
+	}else {
+		op = find_op(p,q) ;
+		printf("p,q is %d\t%d, op place is %d \n",p,q,op);
+		
+	}
+	return result;	
+
+
+}
+
 
 word_t expr(char *e, bool *success) {
   if (!make_token(e)) {
     *success = false;
     return 0;
   }
-	printf("token is %d \n",nr_token);
+	printf("nr_token is %d \n",nr_token);
   /* TODO: Insert codes to evaluate the expression. */
+	Eval_Res eval_res;
+	eval_res= eval(0,nr_token-1);
 
-  return 0;
+
+  return eval_res.res;
 }
