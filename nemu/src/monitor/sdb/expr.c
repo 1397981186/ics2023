@@ -146,7 +146,7 @@ static int op_pir(int op){
 }
 
 static int find_op(int p, int q){
-	int pri = -1;
+	int pri = 1000;
 	int cnt = 0;
 	int place = p;
 	for(int i = p;i<=q;i++){
