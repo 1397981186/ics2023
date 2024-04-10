@@ -189,7 +189,7 @@ void init_sdb() {
   init_regex();
 
 	int expr_res_val = 0;
-	char * test_exec = "123*(123+14)+";
+	char * test_exec = "65+(12*3)+99-32*5";
 	bool ifsucess = true;
 	expr_res_val = expr(test_exec,&ifsucess);
 	printf("result exec is %d \n",ifsucess);
