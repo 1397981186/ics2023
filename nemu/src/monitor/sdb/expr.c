@@ -209,6 +209,7 @@ Eval_Res eval(int p,int q){
 		printf("p bigger than q, expr.c:eval \r\n");
 		return result;	
 	}else if(p == q){
+		printf("p == q \n");
 		if(tokens[p].type == TK_NUM){
 			result.ifsuccess = true;
 			result.res = strtol(tokens[p].str,NULL,10);
