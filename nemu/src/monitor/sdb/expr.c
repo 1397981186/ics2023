@@ -168,6 +168,7 @@ static int find_op(int p, int q){
 				}
 			}
 			if(i>q){
+				printf("i >q ,break");
 				break;
 			}
 		}else if(tokens[i].type ==TK_NUM ){
