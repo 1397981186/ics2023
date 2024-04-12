@@ -190,7 +190,7 @@ void init_sdb() {
 
 	int expr_res_val = 0;
 	//char * test_exec = "65+(12*3)+99-32*5";
-	char * test_exec = "0x100000";
+	char * test_exec = "*0x100000";
 	bool ifsucess = true;
 	expr_res_val = expr(test_exec,&ifsucess);
 	printf("result exec is %d \n",ifsucess);
