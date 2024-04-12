@@ -131,7 +131,7 @@ static bool make_token(char *e) {
   }
 	// explit neg , pointer
 	for(int i2042 = 0;i2042<=nr_token;i2042++){
-		if(tokens[i2042].type == '*' && (i2042==0||tokens[i2042-1].type!=TK_NUM||tokens[i2042-1].type!=TK_HEX||tokens[i2042-1].type!=')'))	{
+		if(tokens[i2042].type == '*' && (i2042==0||(tokens[i2042-1].type!=TK_NUM && tokens[i2042-1].type!=TK_HEX && tokens[i2042-1].type!=')')))	{
 			printf("token match pointer \n");
 			tokens[i2042].type= TK_POINTER;
 		}
