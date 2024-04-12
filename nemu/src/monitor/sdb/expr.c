@@ -114,6 +114,14 @@ static bool make_token(char *e) {
 						tokens[nr_token].type = rules[i].token_type;
 						nr_token++;
 						break;
+        	case TK_HEX:
+						printf("find HEX \n");
+						Assert((substr_len< 32),"%s","token max 32, but rules match more than 32");
+						strncpy(tokens[nr_token].str,substr_start,substr_len);
+						tokens[nr_token].str[substr_len]= '\0';
+						tokens[nr_token].type = rules[i].token_type;
+						nr_token++;
+						break;
           default: 
 						tokens[nr_token].type = rules[i].token_type;
 						nr_token++;
@@ -229,6 +237,9 @@ Eval_Res eval(int p,int q){
 		if(tokens[p].type == TK_NUM){
 			result.ifsuccess = true;
 			result.res = strtol(tokens[p].str,NULL,10);
+		}else if(tokens[p].type == TK_HEX){
+			result.ifsuccess = true;
+			result.res = strtol(tokens[p].str,NULL,16);
 		}
 		return result;
 	}else if(check_parentheses(p,q)){
