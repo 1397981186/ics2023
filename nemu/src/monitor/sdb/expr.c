@@ -19,13 +19,15 @@
  * Type 'man regex' for more information about POSIX regex functions.
  */
 #include <regex.h>
+#include <memory/vaddr.h>
 
 enum {
   TK_NOTYPE = 256, TK_EQ,
 
   /* TODO: Add more token types */
-	TK_NUM,
+	TK_NUM,TK_NEG,TK_POINTER,
 
+	//NEG,POINTER not in rules
 };
 
 static struct rule {
@@ -125,6 +127,12 @@ static bool make_token(char *e) {
       return false;
     }
   }
+	// explit neg , pointer
+	for(int i2042 = 0;i2042<=nr_token;i2042++){
+		if(tokens[i2042].type == '*' && (i2042==0||tokens[i2042-1].type!=TK_NUM||tokens[i2042-1].type!=')'))	{
+			tokens[i2042].type= TK_POINTER;
+		}
+	}
 
   return true;
 }
@@ -137,7 +145,9 @@ typedef struct EVAL_RES{
 static int op_pir(int op){
 	// *,/
 	// +,- 
-	if(op == '*' || op == '/')	{
+	if(op ==TK_POINTER){
+		return 2;
+	}else if(op == '*' || op == '/')	{
 		return 1;
 	}else if(op == '+' || op == '-'){
 		return 0;
@@ -225,6 +235,13 @@ Eval_Res eval(int p,int q){
 		printf("excute op  \n");
 		op = find_op(p,q) ;
 		printf("p,q is %d %d, op place is %d \n",p,q,op);
+		
+		if(tokens[op].type == TK_POINTER){
+			Eval_Res res_pointer_addr = eval(op+1,q);
+			result.res = vaddr_read(res_pointer_addr.res,4);
+			result.ifsuccess = res_pointer_addr.ifsuccess;
+			return result;
+		}
 		val1 = eval(p,op-1);
 		val2 = eval(op+1,q);
 		if(val1.ifsuccess && val2.ifsuccess){
