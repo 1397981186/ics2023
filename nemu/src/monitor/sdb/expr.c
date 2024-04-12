@@ -25,7 +25,7 @@ enum {
   TK_NOTYPE = 256, TK_EQ,
 
   /* TODO: Add more token types */
-	TK_NUM,TK_NEG,TK_POINTER,
+	TK_NUM,TK_HEX,TK_NEG,TK_POINTER,
 
 	//NEG,POINTER not in rules
 };
@@ -43,6 +43,8 @@ static struct rule {
   {"\\+", '+'},         // plus
   {"==", TK_EQ},        // equal
 	{"[0-9]+",TK_NUM},		// nums
+	{"0x[0-9]+",TK_HEX},		// nums
+  {"\\-", '-'},         // plus
   {"\\-", '-'},         // plus
   {"\\*", '*'},         // plus
   {"\\/", '/'},         // plus
@@ -129,7 +131,7 @@ static bool make_token(char *e) {
   }
 	// explit neg , pointer
 	for(int i2042 = 0;i2042<=nr_token;i2042++){
-		if(tokens[i2042].type == '*' && (i2042==0||tokens[i2042-1].type!=TK_NUM||tokens[i2042-1].type!=')'))	{
+		if(tokens[i2042].type == '*' && (i2042==0||tokens[i2042-1].type!=TK_NUM||tokens[i2042-1].type!=TK_HEX||tokens[i2042-1].type!=')'))	{
 			printf("token match pointer \n");
 			tokens[i2042].type= TK_POINTER;
 		}
@@ -180,7 +182,7 @@ static int find_op(int p, int q){
 				printf("i >q ,break");
 				break;
 			}
-		}else if(tokens[i].type ==TK_NUM ){
+		}else if(tokens[i].type ==TK_NUM||tokens[i].type == TK_HEX ){
 			continue;
 		}else if(op_pir(tokens[i].type) <= pri){
 			pri = op_pir(tokens[i].type);
