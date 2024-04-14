@@ -142,6 +142,9 @@ static bool make_token(char *e) {
 		if(tokens[i2042].type == '*' && (i2042==0||(tokens[i2042-1].type!=TK_NUM && tokens[i2042-1].type!=TK_HEX && tokens[i2042-1].type!=')')))	{
 			printf("token match pointer \n");
 			tokens[i2042].type= TK_POINTER;
+		}else if(tokens[i2042].type == '-' && (i2042==0||(tokens[i2042-1].type!=TK_NUM && tokens[i2042-1].type!=TK_HEX && tokens[i2042-1].type!=')')))	{
+			printf("token match neg \n");
+			tokens[i2042].type= TK_NEG;
 		}
 	}
 
@@ -255,6 +258,12 @@ Eval_Res eval(int p,int q){
 			printf("reading pointer ,addr is %ld \n",res_pointer_addr.res);
 			result.res = vaddr_read(res_pointer_addr.res,4);
 			result.ifsuccess = res_pointer_addr.ifsuccess;
+			return result;
+		}else if(tokens[op].type == TK_NEG){
+			Eval_Res res_neg = eval(op+1,q);
+			printf("adding neg to %ld \n",res_neg.res);
+			result.res = -1 * res_neg.res; 
+			result.ifsuccess = true;
 			return result;
 		}
 		val1 = eval(p,op-1);
