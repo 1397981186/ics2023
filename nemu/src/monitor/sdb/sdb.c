@@ -97,7 +97,17 @@ static int cmd_x(char *args){
 		printf("0x%08x\r\n",vaddr_read(addr+i*4,4));
 	}
 	return 0;
+}
 
+static int cmd_p(char *args){
+	int expr_res_val = 0;
+	char *e = strtok(NULL," ");
+	bool ifsucess = true;
+	expr_res_val = expr(e,&ifsucess);
+	printf("result exec is %d \n",ifsucess);
+	printf("result exec is %d \n",expr_res_val);
+	return 0;
+ 
 }
 
 static struct {
@@ -111,6 +121,7 @@ static struct {
   { "si", "single exec", cmd_si },
   { "info", "info r/w show regs/watch", cmd_info },
   { "x", "scan memory", cmd_x },
+  { "p", "expr ", cmd_p},
 
 
   /* TODO: Add more commands */
