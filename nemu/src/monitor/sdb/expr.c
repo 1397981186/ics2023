@@ -123,6 +123,7 @@ static bool make_token(char *e) {
 						nr_token++;
 						break;
 					case TK_EQ:
+						printf("find EQ \n");
 						tokens[nr_token].type = rules[i].token_type;
 						nr_token++;
 						break;
