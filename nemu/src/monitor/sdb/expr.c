@@ -149,7 +149,7 @@ static bool make_token(char *e) {
 }
 
 typedef struct EVAL_RES{
-	int res;
+	long res;
 	bool ifsuccess;
 }Eval_Res;
 
@@ -252,7 +252,7 @@ Eval_Res eval(int p,int q){
 		
 		if(tokens[op].type == TK_POINTER){
 			Eval_Res res_pointer_addr = eval(op+1,q);
-			printf("reading pointer ,addr is %d \n",res_pointer_addr.res);
+			printf("reading pointer ,addr is %ld \n",res_pointer_addr.res);
 			result.res = vaddr_read(res_pointer_addr.res,4);
 			result.ifsuccess = res_pointer_addr.ifsuccess;
 			return result;
