@@ -122,6 +122,8 @@ static bool make_token(char *e) {
 						tokens[nr_token].type = rules[i].token_type;
 						nr_token++;
 						break;
+					case TK_EQ:
+						tokens[nr_token].type = rules[i].token_type;
           default: 
 						tokens[nr_token].type = rules[i].token_type;
 						nr_token++;
