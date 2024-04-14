@@ -251,8 +251,8 @@ Eval_Res eval(int p,int q){
 		printf("p,q is %d %d, op place is %d \n",p,q,op);
 		
 		if(tokens[op].type == TK_POINTER){
-			printf("reading pointer \n");
 			Eval_Res res_pointer_addr = eval(op+1,q);
+			printf("reading pointer ,addr is %d \n",res_pointer_addr.res);
 			result.res = vaddr_read(res_pointer_addr.res,4);
 			result.ifsuccess = res_pointer_addr.ifsuccess;
 			return result;
