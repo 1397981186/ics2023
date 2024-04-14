@@ -160,13 +160,15 @@ static int op_pir(int op){
 	// *,/
 	// +,- 
 	if(op ==TK_POINTER){
-		return 2;
+		return 3;
 	}else if(op == '*' || op == '/')	{
-		return 1;
+		return 2;
 	}else if(op == '+' || op == '-'){
-		return 0;
-	}else
-		return 999;
+		return 1;
+	}else if(op ==TK_EQ){
+		return 0;	
+	}else {
+		return 999;}
 }
 
 static int find_op(int p, int q){
@@ -279,6 +281,7 @@ Eval_Res eval(int p,int q){
 			case '-': result.res = val1.res - val2.res;break;
 			case '*': result.res = val1.res * val2.res;break;
 			case '/': result.res = val1.res / val2.res;break;
+			case TK_EQ: result.res = val1.res ==  val2.res;break;
 			default: printf("invalid operator\n");break;
 		}
 	}
