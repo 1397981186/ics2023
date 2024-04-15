@@ -205,7 +205,7 @@ static int find_op(int p, int q){
 		}else if(op_pir(tokens[i].type) <= pri){
 			pri = op_pir(tokens[i].type);
 			if(tokens[i].type == TK_NEG && tokens[i-1].type == tokens[i].type){
-				continue;
+				continue;// in case of --1
 			}else{
 				place = i;
 			}

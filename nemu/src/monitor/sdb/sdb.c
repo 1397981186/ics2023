@@ -111,7 +111,12 @@ static int cmd_p(char *args){
 	printf("result exec is %d \n",ifsucess);
 	printf("result exec is %d \n",expr_res_val);
 	return 0;
- 
+}
+
+static int cmd_w(char *args){
+	char *e = strtok(NULL," ");
+	new_wp(e);
+	return 0;
 }
 
 static struct {
@@ -126,6 +131,7 @@ static struct {
   { "info", "info r/w show regs/watch", cmd_info },
   { "x", "scan memory", cmd_x },
   { "p", "expr ", cmd_p},
+	{ "w", "add watch point", cmd_w},
 
 
   /* TODO: Add more commands */

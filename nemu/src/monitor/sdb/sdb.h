@@ -20,5 +20,7 @@
 
 word_t expr(char *e, bool *success);
 void display_watchpoint(void);
+void new_wp(char *args);
+void free_wp(int n);
 
 #endif
