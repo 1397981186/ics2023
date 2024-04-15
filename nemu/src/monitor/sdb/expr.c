@@ -164,7 +164,7 @@ typedef struct EVAL_RES{
 static int op_pir(int op){
 	// *,/
 	// +,- 
-	if(op ==TK_POINTER){
+	if(op ==TK_POINTER|| op == TK_NEG){
 		return 3;
 	}else if(op == '*' || op == '/')	{
 		return 2;
