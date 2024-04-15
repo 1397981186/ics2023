@@ -96,6 +96,7 @@ void free_wp(int n){
 	//add to free
 	free_wp->next = free_;
 	free_ = free_wp;
+	printf("delete watchpoint %d \n",n);
 }
 
 void display_watchpoint(void){
