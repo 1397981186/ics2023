@@ -119,6 +119,14 @@ static int cmd_w(char *args){
 	return 0;
 }
 
+static int cmd_d(char *args){
+	char *N = strtok(NULL," ");
+	int num = 0;
+	sscanf(N,"%d",&num);
+	free_wp(num);
+	return 0;
+}
+
 static struct {
   const char *name;
   const char *description;
@@ -132,6 +140,7 @@ static struct {
   { "x", "scan memory", cmd_x },
   { "p", "expr ", cmd_p},
 	{ "w", "add watch point", cmd_w},
+	{ "d", "delete watch point", cmd_d},
 
 
   /* TODO: Add more commands */
