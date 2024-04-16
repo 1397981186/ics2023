@@ -109,3 +109,19 @@ void display_watchpoint(void){
 		wp = wp->next;
 	}
 }
+
+int wp_check(){
+	WP *h = head;
+	int ifChange = 0;
+	bool success;
+	while(h){
+		uint32_t new_res = expr(h->str,&success);
+		if(h->val != new_res){
+			printf("watchpoint %d:  \n Old value = %u 0x%x \n New value = %u 0x%x \n",h->NO,h->val,h->val,new_res,new_res);
+			h->val = new_res;
+			ifChange = 1;
+		}
+		h = h->next;
+	}
+	return ifChange;
+}
