@@ -126,7 +126,10 @@ endmenu
 
 menu "Testing and Debugging"
 
-
+config WATCHPOINT
+  bool "Enable wp"
+  default n
+  
 config TRACE
   bool "Enable tracer"
   default y
