@@ -23,7 +23,6 @@ void halt(int code) {
 }
 
 void _trm_init() {
-	printf("in abstract-machine/am/src/platform/nemu \n");
   int ret = main(mainargs);
   halt(ret);
 }
