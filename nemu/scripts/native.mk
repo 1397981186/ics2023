@@ -34,9 +34,11 @@ NEMU_EXEC := $(BINARY) $(ARGS) $(IMG)
 run-env: $(BINARY) $(DIFF_REF_SO)
 
 run: run-env
+	echo "in nemu/scripts/nativemk"
 	$(call git_commit, "run NEMU")
 	$(NEMU_EXEC)
 gdb: run-env
+	echo "in nemu/scripts/nativemk"
 	$(call git_commit, "gdb NEMU")
 	gdb -s $(BINARY) --args $(NEMU_EXEC)
 
