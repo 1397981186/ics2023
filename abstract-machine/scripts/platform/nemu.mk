@@ -24,6 +24,7 @@ image: $(IMAGE).elf
 
 run: image
 	@echo "run abstract-machine/scripts/platform/numumk"
+	@echo NEMUFLAGS
 	$(MAKE) -C $(NEMU_HOME) ISA=$(ISA) run ARGS="$(NEMUFLAGS)" IMG=$(IMAGE).bin
 
 gdb: image
