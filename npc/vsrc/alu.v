@@ -1,4 +1,4 @@
-`include "defines.v"
+`include "vsrc/defines.v"
 
 module alu(
     input  wire           aluc,
