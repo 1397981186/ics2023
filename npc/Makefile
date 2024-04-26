@@ -10,8 +10,8 @@ default: sim
 sim: 
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	@echo "### sim ###"
-	verilator --trace --x-assign unique --x-initial unique --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
-	@touch .stamp.verilate
+	verilator -Wno-STMTDLY -Wno-MODDUP --trace --x-assign unique --x-initial unique --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
+	
 
 
 .PHONY:verilate
