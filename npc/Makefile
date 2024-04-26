@@ -1,5 +1,4 @@
 include ../Makefile
-
 MODULE=rv32
 CSRCS = $(shell find $(abspath ./csrc) -name "*.cpp")
 VSRCS = $(shell find $(abspath ./vsrc) -name "*.v")
@@ -10,14 +9,20 @@ default: sim
 
 sim: 
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
-	waveform.vcd
+	@echo "### VERILATING ###"
+	verilator -Wno-STMTDLY -Wno-MODDUP --trace --x-assign unique --x-initial unique --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
+	@touch .stamp.verilate
 
+
+.PHONY:verilate
 verilate: .stamp.verilate
 
 
+.PHONY:build
 build: obj_dir/V$(MODULE)
 
 
+.PHONY:waves
 waves: waveform.vcd
 	@echo
 	@echo "### WAVES ###"
