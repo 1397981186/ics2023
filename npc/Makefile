@@ -1,6 +1,6 @@
 TOPNAME = top
 NXDC_FILES = $(NPC_HOME)/constr/top.nxdc
-INC_PATH ?=
+INC_PATH ?= $(NPC_HOME)
 
 VERILATOR = verilator
 VERILATOR_CFLAGS += -MMD --build -cc  \
@@ -21,8 +21,9 @@ $(SRC_AUTO_BIND): $(NXDC_FILES)
 	python3 $(NVBOARD_HOME)/scripts/auto_pin_bind.py $^ $@
 
 # project source
-VSRCS = $(shell find $(abspath $(NPC_HOME)/vsrc) -name "*.v")
-CSRCS = $(shell find $(abspath $(NPC_HOME)/csrc) -name "*.c" -or -name "*.cc" -or -name "*.cpp")
+VSRCS = $(shell find $(abspath /vsrc) -name "*.v")
+VSRCS += $(shell find $(abspath /vsrc/*) -name "*.v")
+CSRCS = $(shell find $(abspath /csrc) -name "*.c" -or -name "*.cc" -or -name "*.cpp")
 CSRCS += $(SRC_AUTO_BIND)
 
 # rules for NVBoard
@@ -46,8 +47,8 @@ all: default
 sim: $(BIN)
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	@$^
-
+	
 clean:
 	rm -rf $(BUILD_DIR)
-
+	
 include ../Makefile
