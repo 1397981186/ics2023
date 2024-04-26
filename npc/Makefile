@@ -11,7 +11,8 @@ sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	@echo "### sim ###"
 	verilator -Wno-STMTDLY -Wno-MODDUP --trace --x-assign unique --x-initial unique --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
-	
+	@echo "### run ###"
+	obj_dir/Vrv32 +trace
 
 
 .PHONY:verilate
