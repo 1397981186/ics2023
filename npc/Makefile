@@ -1,7 +1,7 @@
 include ../Makefile
 MODULE=rv32
 CSRCS = $(shell find $(abspath ./csrc) -name "*.cpp")
-VSRCS = $(shell find $(abspath ./vsrc) -name "*.v")
+#VSRCS = $(shell find $(abspath ./vsrc) -name "*.v")
 VSRCS += $(shell find $(abspath ./vsrc/*) -name "*.v")
 
 
