@@ -32,6 +32,7 @@ static const uint32_t inst[] = {
  
 static uint32_t pmem_read(uint32_t pc)
 {
+	printf("pc is %x \n,pc");
   if(pc < 0x80000000)
     return 0;
   if((pc - 0x80000000) % 4 != 0)
