@@ -23,7 +23,7 @@ gdb:
 	@echo "### gdb ###"
 	verilator  -MMD --build --trace --gdbbt --debug  --top-module $(MODULE) -cc $(VSRCS) -CFLAGS "-g" --exe $(CSRCS)
 	@echo "### run ###"
-	gdb obj_dir/Vrv32 +trace
+	gdb obj_dir/Vrv32 
 
 
 
