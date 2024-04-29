@@ -22,8 +22,7 @@ gdb:
 	verilator  --gdbbt --debug  --top-module $(MODULE) -cc $(VSRCS) -CFLAGS "-ggdb" --exe $(CSRCS)
 	@echo "### run ###"
 	gdb obj_dir/Vrv32 
-	@echo "### wave ###"
-	gtkwave waveform.vcd
+
 
 
 .PHONY:verilate
