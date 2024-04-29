@@ -18,8 +18,8 @@ sim:
 	
 gdb: 
 	$(call git_commit, "gdb RTL") # DO NOT REMOVE THIS LINE!!!
-	@echo "### sim ###"
-	verilator  --trace  --runtime-debug  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
+	@echo "### gdb ###"
+	verilator  --trace  --gdb  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
 	@echo "### run ###"
 	gdb obj_dir/Vrv32 +trace
 	@echo "### wave ###"
