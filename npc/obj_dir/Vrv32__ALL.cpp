@@ -3,6 +3,7 @@
 #include "Vrv32.cpp"
 #include "Vrv32___024root__DepSet_h0a8930af__0.cpp"
 #include "Vrv32___024root__DepSet_hfe7802c3__0.cpp"
+#include "Vrv32__Dpi.cpp"
 #include "Vrv32__Trace__0.cpp"
 #include "Vrv32___024root__Slow.cpp"
 #include "Vrv32___024root__DepSet_h0a8930af__0__Slow.cpp"
