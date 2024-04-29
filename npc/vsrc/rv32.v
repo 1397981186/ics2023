@@ -1,4 +1,4 @@
-`include "/home/uae/ysyx/ysyx-workbench/npc/vsrc/defines.v"
+`include "vsrc/defines.v"
 
 module clk_count(
   input  wire clk,
