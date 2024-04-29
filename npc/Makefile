@@ -21,7 +21,7 @@ gdb:
 	@echo "### gdb ###"
 	verilator  --trace  --runtime-debug  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
 	@echo "### run ###"
-	gdb obj_dir/Vrv32 +trace
+	obj_dir/Vrv32 +trace --debug
 	@echo "### wave ###"
 	gtkwave waveform.vcd
 
