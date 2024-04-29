@@ -11,7 +11,7 @@ sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	@rm -rf $(obj_dir)
 	@echo "### sim ###"
-	verilator  --trace  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
+	verilator   -MMD --build --trace  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
 	@echo "### run ###"
 	obj_dir/Vrv32 +trace
 	@echo "### wave ###"
