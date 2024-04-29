@@ -21,7 +21,7 @@ gdb:
 	$(call git_commit, "gdb RTL") # DO NOT REMOVE THIS LINE!!!
 	@rm -rf $(obj_dir)
 	@echo "### gdb ###"
-	verilator  --gdbbt --debug  --top-module $(MODULE) -cc $(VSRCS) -CFLAGS "-g" --exe $(CSRCS)
+	verilator  -MMD --build --gdbbt --debug  --top-module $(MODULE) -cc $(VSRCS) -CFLAGS "-g" --exe $(CSRCS)
 	@echo "### run ###"
 	gdb obj_dir/Vrv32 
 
