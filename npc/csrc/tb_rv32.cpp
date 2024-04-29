@@ -90,6 +90,7 @@ static void reset(void)
 
 int main(void)
 {
+  printf("tb_rv32:main");
   Verilated::traceEverOn(true); //导出vcd波形需要加此语句
 
   top->trace(tfp, 0);

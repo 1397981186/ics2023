@@ -35,7 +35,7 @@ VM_PREFIX = Vrv32
 VM_MODPREFIX = Vrv32
 # User CFLAGS (from -CFLAGS on Verilator command line)
 VM_USER_CFLAGS = \
-	-g \
+	-ggdb \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
