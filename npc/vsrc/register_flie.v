@@ -1,4 +1,4 @@
-``include "vsrc/defines.v"
+`include "vsrc/defines.v"
 
 module register_file(
     input  wire           clk,
