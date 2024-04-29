@@ -9,6 +9,7 @@
 #define VERILATED_VRV32_H_  // guard
 
 #include "verilated.h"
+#include "svdpi.h"
 
 class Vrv32__Syms;
 class Vrv32___024root;

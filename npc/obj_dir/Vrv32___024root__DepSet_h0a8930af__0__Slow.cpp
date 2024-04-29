@@ -3,6 +3,7 @@
 // See Vrv32.h for the primary calling header
 
 #include "verilated.h"
+#include "verilated_dpi.h"
 
 #include "Vrv32__Syms.h"
 #include "Vrv32___024root.h"

@@ -16,6 +16,8 @@
 // INCLUDE MODULE CLASSES
 #include "Vrv32___024root.h"
 
+// DPI TYPES for DPI Export callbacks (Internal use)
+
 // SYMS CLASS (contains all model state)
 class Vrv32__Syms final : public VerilatedSyms {
   public:

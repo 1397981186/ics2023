@@ -15,10 +15,12 @@ class Vrv32___024root final : public VerilatedModule {
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
     VL_IN8(rst,0,0);
-    CData/*1:0*/ rv32__DOT__PC_inst__DOT__clk_div4;
+    CData/*2:0*/ rv32__DOT__type4;
+    CData/*0:0*/ rv32__DOT__m1;
+    CData/*0:0*/ rv32__DOT__aluc;
+    CData/*1:0*/ rv32__DOT__clk_count_inst__DOT__clk_cnt;
     CData/*0:0*/ rv32__DOT__i1__DOT__i0__DOT__hit;
     CData/*0:0*/ __Vtrigrprev__TOP__clk;
-    CData/*0:0*/ __Vtrigrprev__TOP__rst;
     CData/*0:0*/ __VactContinue;
     SData/*11:0*/ rv32__DOT__imm_extend_inst__DOT__imm_12;
     VL_IN(inst,31,0);
