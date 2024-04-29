@@ -1,4 +1,4 @@
-`include "vsrc/defines.v"
+`include "/home/uae/ysyx/ysyx-workbench/npc/vsrc/defines.v"
 
 module alu(
     input  wire           aluc,
