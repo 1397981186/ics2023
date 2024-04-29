@@ -19,9 +19,9 @@ sim:
 gdb: 
 	$(call git_commit, "gdb RTL") # DO NOT REMOVE THIS LINE!!!
 	@echo "### gdb ###"
-	verilator  --trace  --runtime-debug  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
+	verilator  --trace  --debug  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
 	@echo "### run ###"
-	obj_dir/Vrv32 +trace --debug
+	gdb obj_dir/Vrv32 +trace 
 	@echo "### wave ###"
 	gtkwave waveform.vcd
 
