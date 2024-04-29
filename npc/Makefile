@@ -9,6 +9,7 @@ default: sim
 
 sim: 
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
+	@rm -rf $(obj_dir)
 	@echo "### sim ###"
 	verilator  --trace  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
 	@echo "### run ###"
@@ -18,6 +19,7 @@ sim:
 	
 gdb: 
 	$(call git_commit, "gdb RTL") # DO NOT REMOVE THIS LINE!!!
+	@rm -rf $(obj_dir)
 	@echo "### gdb ###"
 	verilator  --gdbbt --debug  --top-module $(MODULE) -cc $(VSRCS) -CFLAGS "-g" --exe $(CSRCS)
 	@echo "### run ###"
