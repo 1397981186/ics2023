@@ -3,7 +3,14 @@ MODULE=rv32
 CSRCS = $(shell find $(abspath ./csrc) -name "*.cpp")
 #VSRCS = $(shell find $(abspath ./vsrc) -name "*.v")
 VSRCS += $(shell find $(abspath ./vsrc/*) -name "*.v")
+INC_PATH = $(NPC_HOME)/include/
+LIBS = -lreadline   # link the <readline> lib
 
+
+IMG ?=      #loaded by AM Makefile (npc.mk)
+override ARGS ?= --log=./log/npc-log.txt
+BINARY := ./obj_dir/V$(MODULE)
+NEMU_EXEC := $(BINARY) $(ARGS) $(IMG)
 
 default: sim
 
@@ -11,7 +18,9 @@ sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	@rm -rf $(obj_dir)
 	@echo "### sim ###"
-	verilator   -MMD --build --trace  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
+	verilator   -MMD --build --trace  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS) -I$(INC_PATH)
+	#MMD build 用于链接;trace 使用trace;top-module指定顶层模块;I包含include文件
+	@echo "LIBS +=$(LIBS)" >> ./obj_dir/V$(MODULE).mk    # to link readline library
 	@echo "### run ###"
 	obj_dir/Vrv32 +trace
 	@echo "### wave ###"
@@ -92,4 +101,4 @@ clean:
 	rm -rf .stamp.*;
 	rm -rf ./obj_dir
 	rm -rf waveform.vcd
-	
+	rm ./log/*
