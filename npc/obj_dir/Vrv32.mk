@@ -93,3 +93,4 @@ Vrv32: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)
 
 
 # Verilated -*- Makefile -*-
+LIBS +=-lreadline   
