@@ -14,7 +14,7 @@ module register_file(
 );
 
     integer i;
-    reg[`RegBus] regs[`BitWidth-1 : 0];
+    reg[`RegBus] regs[`BitWidth-1 : 0] /* verilator public_flat_rd */;
     wire         r_wen;
 
     assign r_wen = (clk1_flag == 1'b1) & wen;
