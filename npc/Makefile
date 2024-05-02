@@ -18,7 +18,7 @@ sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	@rm -rf $(obj_dir)
 	@echo "### sim ###"
-	verilator   -MMD --build --trace --public-params --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS) -I$(INC_PATH)
+	verilator   -MMD --build --trace --public -params --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS) -I$(INC_PATH)
 	#MMD build 用于链接;trace 使用trace;top-module指定顶层模块;I包含include文件
 	@echo "LIBS +=$(LIBS)" >> ./obj_dir/V$(MODULE).mk    # to link readline library
 	@echo "### run ###"
