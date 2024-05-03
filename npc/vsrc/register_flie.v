@@ -11,7 +11,7 @@ module register_file(
     input  wire [`RegBus] rin,
     output wire [`RegBus] src1,
     output wire [`RegBus] src2
-)/* verilator public */;
+);
 
     integer i;
     reg[`RegBus] regs[`BitWidth-1 : 0] /* verilator public */;

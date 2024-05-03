@@ -59,13 +59,13 @@ module rv32(
   input  wire           rst,
   input  wire [`RegBus] inst,
   output wire [`RegBus] pc
-)/* verilator public */;
+);
   
   wire            clk1_flag;
   wire            clk2_flag;
-  wire [4:0]      rs1/* verilator public_flat_rd */;
-  wire [4:0]      rs2/* verilator public_flat_rd */;
-  wire [4:0]      rd/* verilator public_flat_rd */;
+  wire [4:0]      rs1/* verilator public */;
+  wire [4:0]      rs2/* verilator public */;
+  wire [4:0]      rd/* verilator public */;
   wire [2:0]      funct3/* verilator public_flat_rd */;
   wire [6:0]      funct7/* verilator public_flat_rd */;
   wire[`TYPE_BUS] type4/* verilator public_flat_rd */;      //inst type
