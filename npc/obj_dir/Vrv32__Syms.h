@@ -15,6 +15,8 @@
 
 // INCLUDE MODULE CLASSES
 #include "Vrv32___024root.h"
+#include "Vrv32_rv32.h"
+#include "Vrv32_register_file.h"
 
 // DPI TYPES for DPI Export callbacks (Internal use)
 
@@ -30,6 +32,8 @@ class Vrv32__Syms final : public VerilatedSyms {
 
     // MODULE INSTANCE STATE
     Vrv32___024root                TOP;
+    Vrv32_rv32                     TOP__rv32;
+    Vrv32_register_file            TOP__rv32__register_file_inst;
 
     // SCOPE NAMES
     VerilatedScope __Vscope_TOP;

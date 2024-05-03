@@ -14,6 +14,8 @@
 class Vrv32__Syms;
 class Vrv32___024root;
 class VerilatedVcdC;
+class Vrv32_rv32;
+
 
 // This class is the main interface to the Verilated model
 class Vrv32 VL_NOT_FINAL : public VerilatedModel {
@@ -34,6 +36,7 @@ class Vrv32 VL_NOT_FINAL : public VerilatedModel {
     // CELLS
     // Public to allow access to /* verilator public */ items.
     // Otherwise the application code can consider these internals.
+    Vrv32_rv32* const rv32;
 
     // Root instance pointer to allow access to model internals,
     // including inlined /* verilator public_flat_* */ items.

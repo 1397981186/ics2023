@@ -26,12 +26,19 @@ VM_CLASSES_FAST += \
 	Vrv32 \
 	Vrv32___024root__DepSet_h0a8930af__0 \
 	Vrv32___024root__DepSet_hfe7802c3__0 \
+	Vrv32_rv32__DepSet_hb39b3117__0 \
+	Vrv32_register_file__DepSet_h6a6bf476__0 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
 	Vrv32___024root__Slow \
 	Vrv32___024root__DepSet_h0a8930af__0__Slow \
 	Vrv32___024root__DepSet_hfe7802c3__0__Slow \
+	Vrv32_rv32__Slow \
+	Vrv32_rv32__DepSet_hb39b3117__0__Slow \
+	Vrv32_rv32__DepSet_h4766034b__0__Slow \
+	Vrv32_register_file__Slow \
+	Vrv32_register_file__DepSet_h6a6bf476__0__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \

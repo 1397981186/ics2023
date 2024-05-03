@@ -16,6 +16,7 @@ Vrv32::Vrv32(VerilatedContext* _vcontextp__, const char* _vcname__)
     , rst{vlSymsp->TOP.rst}
     , inst{vlSymsp->TOP.inst}
     , pc{vlSymsp->TOP.pc}
+    , rv32{vlSymsp->TOP.rv32}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context
