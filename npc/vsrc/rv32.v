@@ -83,7 +83,7 @@ module rv32(
   wire[`RegBus]   imm;        //extended 32 bit immediate
   wire[`RegBus]   num1;       //alu operation number1       
   wire[`RegBus]   num2;       //alu operation number2
-  assign num1 = src1;
+  //assign num1 = src1;
 
 
   // clk_count module

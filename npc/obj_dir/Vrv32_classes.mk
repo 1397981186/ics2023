@@ -47,6 +47,7 @@ VM_SUPPORT_SLOW += \
 VM_GLOBAL_FAST += \
 	verilated \
 	verilated_dpi \
+	verilated_vpi \
 	verilated_vcd_c \
 	verilated_threads \
 
