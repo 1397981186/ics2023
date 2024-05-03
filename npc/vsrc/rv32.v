@@ -63,12 +63,12 @@ module rv32(
   
   wire            clk1_flag;
   wire            clk2_flag;
-  wire [4:0]      rs1;
-  wire [4:0]      rs2;
-  wire [4:0]      rd;
-  wire [2:0]      funct3;
-  wire [6:0]      funct7;
-  wire[`TYPE_BUS] type4;      //inst type
+  wire [4:0]      rs1/* verilator public_flat_rd */;
+  wire [4:0]      rs2/* verilator public_flat_rd */;
+  wire [4:0]      rd/* verilator public_flat_rd */;
+  wire [2:0]      funct3/* verilator public_flat_rd */;
+  wire [6:0]      funct7/* verilator public_flat_rd */;
+  wire[`TYPE_BUS] type4/* verilator public_flat_rd */;      //inst type
   wire            wen;        //RegFile write enable
   wire            m1;         //mux1 sel
   wire            m2;         //mux2 sel
