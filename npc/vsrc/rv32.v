@@ -59,7 +59,7 @@ module rv32(
   input  wire           rst,
   input  wire [`RegBus] inst,
   output wire [`RegBus] pc
-);
+)/* verilator public */;
   
   wire            clk1_flag;
   wire            clk2_flag;

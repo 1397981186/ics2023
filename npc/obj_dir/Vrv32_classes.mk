@@ -27,7 +27,8 @@ VM_CLASSES_FAST += \
 	Vrv32___024root__DepSet_h0a8930af__0 \
 	Vrv32___024root__DepSet_hfe7802c3__0 \
 	Vrv32_rv32__DepSet_hb39b3117__0 \
-	Vrv32_register_file__DepSet_h6a6bf476__0 \
+	Vrv32_rv32__DepSet_h4766034b__0 \
+	Vrv32_register_file__DepSet_h968522e2__0 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
@@ -54,7 +55,6 @@ VM_SUPPORT_SLOW += \
 VM_GLOBAL_FAST += \
 	verilated \
 	verilated_dpi \
-	verilated_vpi \
 	verilated_vcd_c \
 	verilated_threads \
 

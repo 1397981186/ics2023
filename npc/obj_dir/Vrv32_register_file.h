@@ -13,18 +13,17 @@ class Vrv32_register_file final : public VerilatedModule {
   public:
 
     // DESIGN SPECIFIC STATE
-    VL_IN8(clk,0,0);
-    VL_IN8(rst,0,0);
-    VL_IN8(clk1_flag,0,0);
-    VL_IN8(wen,0,0);
-    VL_IN8(rs1,4,0);
-    VL_IN8(rs2,4,0);
-    VL_IN8(rd,4,0);
-    CData/*0:0*/ r_wen;
-    VL_IN(rin,31,0);
-    VL_OUT(src1,31,0);
-    VL_OUT(src2,31,0);
-    IData/*31:0*/ i;
+    VL_IN8(__PVT__clk,0,0);
+    VL_IN8(__PVT__rst,0,0);
+    VL_IN8(__PVT__clk1_flag,0,0);
+    VL_IN8(__PVT__wen,0,0);
+    VL_IN8(__PVT__rs1,4,0);
+    VL_IN8(__PVT__rs2,4,0);
+    VL_IN8(__PVT__rd,4,0);
+    VL_IN(__PVT__rin,31,0);
+    VL_OUT(__PVT__src1,31,0);
+    VL_OUT(__PVT__src2,31,0);
+    IData/*31:0*/ __PVT__i;
     VlUnpacked<IData/*31:0*/, 32> regs;
 
     // INTERNAL VARIABLES

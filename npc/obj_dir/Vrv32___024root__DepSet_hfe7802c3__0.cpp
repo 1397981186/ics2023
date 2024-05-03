@@ -33,7 +33,7 @@ void Vrv32___024root___eval(Vrv32___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vrv32___024root___eval\n"); );
     // Init
     CData/*0:0*/ __VicoContinue;
-    VlTriggerVec<2> __VpreTriggered;
+    VlTriggerVec<1> __VpreTriggered;
     IData/*31:0*/ __VnbaIterCount;
     CData/*0:0*/ __VnbaContinue;
     // Body
