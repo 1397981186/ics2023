@@ -8,8 +8,7 @@ extern Vrv32 *top;
 /*********************************************/
 
 
-//#define gpr top->rv32__DOT__register_file_inst__DOT__regs
-#define gpr top->rv32__DOT__register_file__DOT__regs//sht
+#define gpr top->rv32__DOT__register_file_inst__DOT__regs
 
 static const char *regs[] = {
     "$0", "ra", "sp", "gp", "tp", "t0", "t1", "t2",
