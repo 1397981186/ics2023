@@ -196,17 +196,23 @@ static char* rl_gets()
         line_read = NULL;
     }
 
-    line_read = readline("(base) " ANSI_FG_GREEN "npc@uae: " ANSI_NONE);
+    line_read = readline("(ysyx)--" ANSI_FG_GREEN "npc@uae: " ANSI_NONE);
     if (line_read && *line_read) 
         add_history(line_read);
 
     return line_read;
 }
 
+void sdb_set_batch_mode(void) 
+{
+  is_batch_mode = true;
+}
+
 
 void sdb_mainloop() 
 {
-    if(is_batch_mode) {
+    if(is_batch_mode) 
+    {
         cmd_c(NULL);
         return;
     }

@@ -5,10 +5,16 @@ CSRCS = $(shell find $(abspath ./csrc) -name "*.cpp")
 VSRCS += $(shell find $(abspath ./vsrc/*) -name "*.v")
 INC_PATH = $(NPC_HOME)/include/
 LIBS = -lreadline   # link the <readline> lib
+LIBS += -ldl        # link the <dlfcn> lib
 
+# ifdef CONFIG_DIFFTEST
+DIFF_REF_PATH = $(NEMU_HOME)
+DIFF_REF_SO = $(DIFF_REF_PATH)/build/riscv32-nemu-interpreter-so
+ARGS_DIFF = --diff=$(DIFF_REF_SO)
 
 IMG ?=      #loaded by AM Makefile (npc.mk)
 override ARGS ?= --log=./log/npc-log.txt
+override ARGS += $(ARGS_DIFF)
 BINARY := ./obj_dir/V$(MODULE)
 NEMU_EXEC := $(BINARY) $(ARGS) $(IMG)
 
@@ -36,12 +42,15 @@ gdb:
 
 
 
-.PHONY:verilate
-verilate: .stamp.verilate
+.PHONY:gtkw
+gtkw: uae.gtkw
+	@echo
+	@echo "### WAVES ###"
+	gtkwave uae.gtkw
 
 
-.PHONY:build
-build: obj_dir/V$(MODULE)
+.PHONY:sim
+sim: waveform.vcd
 
 
 .PHONY:waves
@@ -51,11 +60,25 @@ waves: waveform.vcd
 	gtkwave waveform.vcd
 
 
+.PHONY:waveform.vcd
 waveform.vcd: ./obj_dir/V$(MODULE)
 	@echo
 	@echo "### SIMULATING ###"
 	@./obj_dir/V$(MODULE) #+verilator+rand+reset+2
 
+
+
+.PHONY:run-env
+run-env: $(BINARY) $(DIFF_REF_SO)
+
+
+.PHONY:run
+run: run-env
+	$(NEMU_EXEC)
+
+
+.PHONY:build
+build: $(BINARY)
 
 #This builds our simulation executable from the testbench and the converted sources.
 #We tell Make to change the working directory to obj_dir, 
@@ -65,6 +88,10 @@ waveform.vcd: ./obj_dir/V$(MODULE)
 	@echo
 	@echo "### BUILDING SIM ###"
 	make -C obj_dir -f V$(MODULE).mk V$(MODULE)
+
+
+.PHONY:verilate
+verilate: .stamp.verilate
 
 
 #This converts our .v source to C++ and generates build files 
@@ -80,7 +107,9 @@ waveform.vcd: ./obj_dir/V$(MODULE)
 .stamp.verilate: $(VSRCS) $(CSRCS)
 	@echo
 	@echo "### VERILATING ###"
-	verilator -Wno-STMTDLY -Wno-MODDUP --trace --x-assign unique --x-initial unique --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS)
+	verilator --trace --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS) -I$(INC_PATH)
+	@echo "LIBS +=$(LIBS)" >> ./obj_dir/V$(MODULE).mk    # to link readline and dlfcn library
+# @echo "CXXFLAGS +=$(CXXFLAGS)" >> ./obj_dir/V$(MODULE).mk 
 	@touch .stamp.verilate
 
 
@@ -92,7 +121,7 @@ waveform.vcd: ./obj_dir/V$(MODULE)
 #----------------------------------------------------------------------------------
 .PHONY:lint
 lint: $(MODULE).v
-	#-lint-only- 告诉 Verilator 进行 lint 但不生成任何仿真输出]
+	#-lint-only- 告诉 Verilator 进行 lint 但不生成任何仿真输出
 	verilator --lint-only $(MODULE).v
 
 
@@ -102,3 +131,4 @@ clean:
 	rm -rf ./obj_dir
 	rm -rf waveform.vcd
 	rm ./log/*
+
