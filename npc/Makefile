@@ -54,7 +54,7 @@ waveform: run-env
 	@echo
 	@echo "### SIMULATING ###"
 	#@./obj_dir/V$(MODULE) #+verilator+rand+reset+2
-	@$(NEMU_EXEC)
+	#@$(NEMU_EXEC)
 
 
 
