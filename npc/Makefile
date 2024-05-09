@@ -37,7 +37,7 @@ gitcommit:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 
 .PHONY:sim
-sim: gitcommit clean waveform.vcd
+sim: gitcommit clean waveform
 	gtkwave waveform.vcd
 	
 
