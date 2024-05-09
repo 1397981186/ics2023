@@ -34,7 +34,7 @@ gtkw: uae.gtkw
 
 
 .PHONY:sim
-sim: 
+sim: clean
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	waveform.vcd
 
