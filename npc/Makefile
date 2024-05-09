@@ -10,8 +10,6 @@ LIBS += -ldl        # link the <dlfcn> lib
 # CXXFLAGS += $(shell llvm-config-11 --cxxflags) -fPIE
 
 
-
-
 # ifdef CONFIG_DIFFTEST
 DIFF_REF_PATH = $(NEMU_HOME)
 DIFF_REF_SO = $(DIFF_REF_PATH)/build/riscv32-nemu-interpreter-so
@@ -21,7 +19,7 @@ IMG ?=      #loaded by AM Makefile (npc.mk)
 override ARGS ?= --log=./log/npc-log.txt
 override ARGS += $(ARGS_DIFF)
 BINARY := ./obj_dir/V$(MODULE)
-NEMU_EXEC := $(BINARY) $(ARGS) 
+NEMU_EXEC := $(BINARY) $(ARGS) $(IMG)
 
 # endif
 
@@ -41,16 +39,9 @@ sim:$(VSRCS) $(CSRCS)
 	@echo "### SIMULATING ###"
 	@$(NEMU_EXEC)
 	
-.PHONY:waves
-waves: 
+.PHONY:wave
+wave: 
 	@echo "### WAVES ###"
 	gtkwave waveform.vcd
-
-
-
-.PHONY:lint
-lint: $(MODULE).v
-	#-lint-only- 告诉 Verilator 进行 lint 但不生成任何仿真输出
-	verilator --lint-only $(MODULE).v
 
 
