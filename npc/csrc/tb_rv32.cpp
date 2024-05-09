@@ -52,7 +52,7 @@ extern void ebreak(int station, int inst, char unit)
 
   //虽然波形图上inst随pc同时变化，但通过打印二者会发现inst会在pc变化之后才改变（这是因为二者都发生变化了之后才输出至波形图的）
   //然而，这个延时会导致decode错误，然后调用了 “ebreak(`ABORT, inst);”
-  if(main_time >= start_time + 1 && main_time >= 3)   // at the begining (main_time < start_time and before the reset), all regs are zeros
+  if(main_time >= start_time + 1 )   // at the begining (main_time < start_time and before the reset), all regs are zeros
   {
     npc_state.halt_ret = top->rv32->register_file_inst->regs[10]; //a0
     npc_state.halt_pc = top->rv32->pc;
@@ -84,6 +84,7 @@ extern void ebreak(int station, int inst, char unit)
 
 extern int pmem_read(int raddr)
 {
+  printf("pmem_read\n");
   static int data = 0xdeadbeaf;
   if(top->clk == 0)
     return data;
