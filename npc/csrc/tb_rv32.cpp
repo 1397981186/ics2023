@@ -84,7 +84,7 @@ extern void ebreak(int station, int inst, char unit)
 
 extern int pmem_read(int raddr)
 {
-  printf("pmem_read\n");
+  printf("tv_rv32.cpp pmem_read\n");
   static int data = 0xdeadbeaf;
   if(top->clk == 0)
     return data;
