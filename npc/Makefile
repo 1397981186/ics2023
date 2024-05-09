@@ -32,11 +32,14 @@ gtkw: uae.gtkw
 	@echo "### WAVES ###"
 	gtkwave uae.gtkw
 
+.PHONY:gitcommit
+gitcommit:
+	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 
 .PHONY:sim
-sim: clean
-	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
-	waveform.vcd
+sim: gitcommit clean waveform.vcd
+	
+	
 
 
 .PHONY:waves
