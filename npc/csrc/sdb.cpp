@@ -6,6 +6,7 @@
 
 
 /********extern functions or variables********/
+extern NPCState npc_state;
 extern void     cpu_exec(uint64_t n); 
 extern void     regs_display(); 
 extern void     init_regex();
@@ -26,8 +27,8 @@ static int cmd_c(char *args) {
     return 0;
 }
 static int cmd_q(char *args) {
-    //npc_state.state = NPC_QUIT
-    return 0;}
+    npc_state.state = NPC_QUIT
+    return -1;}
     
 static int cmd_help(char *args);
 static int cmd_si(char *args);
