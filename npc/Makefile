@@ -126,5 +126,5 @@ clean:
 	rm -rf .stamp.*;
 	rm -rf ./obj_dir
 	rm -rf waveform.vcd
-	#rm ./log/*
+	rm ./log/*
 
