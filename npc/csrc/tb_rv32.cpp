@@ -136,13 +136,14 @@ static void reset(void)
 
 static void init_verilator(void)
 {
-  printf("init_verilator\n");
+  
   Verilated::traceEverOn(true); //导出vcd波形需要加此语句
 
   top->trace(tfp, 0);
   tfp->open("waveform.vcd"); //打开vcd
 
   reset();  //复位
+  printf("init_verilator\n");
 }
 
 int main(int argc, char *argv[])
