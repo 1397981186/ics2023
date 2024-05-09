@@ -64,7 +64,7 @@ static inline bool in_pmem(paddr_t addr) {
 static inline void out_of_bound(paddr_t addr) {
   //panic("address = 0x%08x is out of bound of pmem [0x%08x, 0x%08x] at pc = 0x%08x  time = %ld", 
          //addr, PMEM_LEFT, PMEM_RIGHT, top->rv32->pc, main_time);
-  printf("paddr.cpp out_of_bound address = 0x%08x",addr);
+  printf("paddr.cpp out_of_bound address = 0x%08x \n",addr);
 }
 
 word_t pmem_r(paddr_t addr, int len) 
