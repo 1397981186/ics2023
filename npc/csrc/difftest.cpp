@@ -91,7 +91,7 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc)
             success = false;
         }
     if(success){
-    	_Log(ANSI_FG_YELLOW "[difftest]" ANSI_NONE   ANSI_FG_RED "%s" ANSI_NONE "  dut:0x%08x   ref:0x%08x\n", ref_regs[i], top_regs[i], ref_r->gpr[i]);
+    	_Log(ANSI_FG_GREEN  "[difftest pass]" );
     }
     return success;
 }
