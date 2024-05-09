@@ -86,8 +86,6 @@ extern int pmem_read(int raddr)
 {
   printf("tv_rv32.cpp pmem_read, raddr is 0x%x \n",raddr);
   static int data = 0xdeadbeaf;
-  if(top->clk == 0)
-    return data;
 
   if(main_time >= start_time)
   {
