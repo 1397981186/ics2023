@@ -133,7 +133,7 @@ static void reset(void)
 {
   top->rst = 0; single_cycle();
   top->rst = 1; single_cycle();
-  top->rst = 0; 
+  top->rst = 0; single_cycle(); 
 }
 
 static void init_verilator(void)
@@ -287,11 +287,8 @@ int main(int argc, char *argv[])
 
 // void single_cycle(void) 
 // {
-//   if(!Verilated::gotFinish())
-//   { 
 //     top->clk = 0; top->eval(); tfp->dump(main_time);  main_time++; //推动仿真时间
 //     top->clk = 1; top->eval(); tfp->dump(main_time);  main_time++; //推动仿真时间
-//     // top->inst = pmem_read(top->pc);
 //   }
 // }
 
