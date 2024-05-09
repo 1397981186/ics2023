@@ -124,8 +124,8 @@ void single_cycle(void)
   printf("tb_rv32.cpp single_cycle \n");
   if(!Verilated::gotFinish())
   { 
-    top->clk = 0; top->eval(); tfp->dump(main_time);  main_time++; //推动仿真时间
     top->clk = 1; top->eval(); tfp->dump(main_time);  main_time++; //推动仿真时间
+    top->clk = 0; top->eval(); tfp->dump(main_time);  main_time++; //推动仿真时间
   }
 }
 
