@@ -21,14 +21,14 @@ IMG ?=      #loaded by AM Makefile (npc.mk)
 override ARGS ?= --log=./log/npc-log.txt
 override ARGS += $(ARGS_DIFF)
 BINARY := ./obj_dir/V$(MODULE)
-NEMU_EXEC := $(BINARY) $(ARGS) $(IMG)
+NEMU_EXEC := $(BINARY) $(ARGS) 
 
 # endif
 
 
 
-.PHONY:sim_sht	
-sim_sht:$(VSRCS) $(CSRCS)
+.PHONY:sim
+sim:$(VSRCS) $(CSRCS)
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 	rm -rf .stamp.*;
 	rm -rf ./obj_dir
