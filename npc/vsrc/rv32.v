@@ -21,10 +21,9 @@ module PC(
   always @(posedge clk) begin
     if(rst == `RST_VAL)
       pc <= `RESET_VECTOR;
-    else if(clk == 1'b1)
-      pc <= npc;
     else
-      pc <= pc;
+      pc <= npc;
+
   end
 
   // MUX1 module
