@@ -296,8 +296,7 @@ VL_INLINE_OPT void Vrv32_rv32___nba_sequent__TOP__rv32__0(Vrv32_rv32* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+      Vrv32_rv32___nba_sequent__TOP__rv32__0\n"); );
     // Body
     vlSelf->pc = ((IData)(vlSymsp->TOP.rst) ? 0x80000000U
-                   : ((IData)(vlSymsp->TOP.clk) ? vlSelf->__PVT__PC_inst__DOT__npc
-                       : vlSelf->pc));
+                   : vlSelf->__PVT__PC_inst__DOT__npc);
     vlSelf->__PVT__PC_inst__DOT__i2__DOT__i0__DOT__pair_list[1U] 
         = (QData)((IData)(((IData)(4U) + vlSelf->pc)));
     vlSelf->__PVT__i4__DOT__i0__DOT__pair_list[1U] 
