@@ -17,6 +17,12 @@ DIFF_REF_PATH = $(NEMU_HOME)
 DIFF_REF_SO = $(DIFF_REF_PATH)/build/riscv32-nemu-interpreter-so
 ARGS_DIFF = --diff=$(DIFF_REF_SO)
 
+IMG ?=      #loaded by AM Makefile (npc.mk)
+override ARGS ?= --log=./log/npc-log.txt
+override ARGS += $(ARGS_DIFF)
+BINARY := ./obj_dir/V$(MODULE)
+NEMU_EXEC := $(BINARY) $(ARGS) $(IMG)
+
 .PHONY: $(DIFF_REF_SO)
 $(DIFF_REF_SO):
 	$(MAKE) -s -C $(DIFF_REF_PATH) 
@@ -38,10 +44,21 @@ gitcommit:
 
 .PHONY:sim
 sim: gitcommit clean waveform
-	
-	
 
-
+.PHONY:sim_sht	
+sim_sht:$(VSRCS) $(CSRCS)
+	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
+	rm -rf .stamp.*;
+	rm -rf ./obj_dir
+	rm -rf waveform.vcd
+	@echo "### VERILATING ###"
+	verilator --trace --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS) -I$(INC_PATH)
+	@echo "LIBS +=$(LIBS)" >> ./obj_dir/V$(MODULE).mk  
+	@echo "### BUILDING SIM ###"
+	make -C obj_dir -f V$(MODULE).mk V$(MODULE) $(DIFF_REF_PATH) -o $(abspath $(BINARY))
+	@echo "### SIMULATING ###"
+	@$(NEMU_EXEC)
+	
 .PHONY:waves
 waves: waveform.vcd
 	@echo
@@ -58,15 +75,11 @@ waveform: run-env
 
 
 
-IMG ?=      #loaded by AM Makefile (npc.mk)
-override ARGS ?= --log=./log/npc-log.txt
-override ARGS += $(ARGS_DIFF)
-BINARY := ./obj_dir/V$(MODULE)
-NEMU_EXEC := $(BINARY) $(ARGS) $(IMG)
+
 
 
 .PHONY:run-env
-run-env: $(BINARY) $(DIFF_REF_SO)
+run-env: $(BINARY) 
 
 
 .PHONY:run
