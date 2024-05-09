@@ -84,14 +84,13 @@ extern void ebreak(int station, int inst, char unit)
 
 extern int pmem_read(int raddr)
 {
-  printf("tv_rv32.cpp pmem_read, raddr is 0x%x \n",raddr);
+  printf("tv_rv32.cpp pmem_read, maintime is %d,raddr is 0x%x \n",main_time,raddr);
   static int data = 0xdeadbeaf;
 
   if(main_time >= start_time)
   {
     data = pmem_r(raddr, 4);
     return data; 
-    // return pmem_r((raddr & ~0x3u), 4);
   } 
   else
     return 0xdeadbeaf;
