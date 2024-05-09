@@ -106,6 +106,7 @@ static void checkregs(CPU_state *ref, vaddr_t pc, vaddr_t npc)
 
 void difftest_step(vaddr_t pc, vaddr_t npc) 
 {
+    printf("difftest.cpp difftest_step \n");
     CPU_state ref_r;
 
     ref_difftest_exec(1);
