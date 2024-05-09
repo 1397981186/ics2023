@@ -133,7 +133,7 @@ static void reset(void)
 {
   top->rst = 0; single_cycle();
   top->rst = 1; single_cycle();
-  top->rst = 0; single_cycle(); 
+  top->rst = 0; 
 }
 
 static void init_verilator(void)
