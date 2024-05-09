@@ -104,7 +104,7 @@ verilate: .stamp.verilate
 .stamp.verilate: $(VSRCS) $(CSRCS)
 	@echo
 	@echo "### VERILATING ###"
-	verilator -Wno-STMTDLY -Wno-MODDUP --trace --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS) -I$(INC_PATH)
+	verilator --trace --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS) -I$(INC_PATH)
 	@echo "LIBS +=$(LIBS)" >> ./obj_dir/V$(MODULE).mk    # to link readline and dlfcn library
 # @echo "CXXFLAGS +=$(CXXFLAGS)" >> ./obj_dir/V$(MODULE).mk 
 	@touch .stamp.verilate
@@ -127,4 +127,4 @@ clean:
 	rm -rf .stamp.*;
 	rm -rf ./obj_dir
 	rm -rf waveform.vcd
-
+	rm ./log/*
