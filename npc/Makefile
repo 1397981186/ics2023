@@ -38,7 +38,7 @@ gitcommit:
 
 .PHONY:sim
 sim: gitcommit clean waveform
-	$(gtkwave) waveform.vcd
+	
 	
 
 
