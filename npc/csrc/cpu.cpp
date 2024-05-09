@@ -83,6 +83,7 @@ static void execute_once()
 
 static void trace_and_difftest() 
 {
+    printf("cpu.cpp trace_and_difftest \n");
     // itrace
     #ifdef CONFIG_ITRACE
         log_write("%s\n", logbuf);
