@@ -27,7 +27,7 @@ static int cmd_c(char *args) {
     return 0;
 }
 static int cmd_q(char *args) {
-    npc_state.state = NPC_QUIT
+    npc_state.state = NPC_QUIT;
     return -1;}
     
 static int cmd_help(char *args);
