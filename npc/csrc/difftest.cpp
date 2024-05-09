@@ -29,7 +29,6 @@ const char *ref_regs[] = {
 static void init_cpu_state(CPU_state *cpu)
 {
     cpu->pc = top->rv32->pc;
-    cpu->pc =0;
     for(int i = 0; i < 32; i++)
         cpu->gpr[i] = top_regs[i];
 }
