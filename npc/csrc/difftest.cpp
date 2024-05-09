@@ -37,7 +37,7 @@ static void init_cpu_state(CPU_state *cpu)
 
 void init_difftest(char *ref_so_file, long img_size, int port) 
 {
-    printf("init_difftest\n");
+    printf("difftest.cpp init_difftest,ref so file is %s,img_size is %d,port is %d \n",ref_so_file,img_size,port);
     CPU_state cpu;
     init_cpu_state(&cpu);
 
