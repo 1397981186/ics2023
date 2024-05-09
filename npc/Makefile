@@ -37,9 +37,8 @@ gitcommit:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
 
 .PHONY:sim
-sim: gitcommit clean 
+sim: gitcommit clean waveform.vcd
 	gtkwave waveform.vcd
-	
 	
 
 
@@ -50,8 +49,8 @@ waves: waveform.vcd
 	gtkwave waveform.vcd
 
 
-.PHONY:waveform.vcd
-waveform.vcd: ./obj_dir/V$(MODULE) run-env
+.PHONY:waveform
+waveform: ./obj_dir/V$(MODULE) run-env
 	@echo
 	@echo "### SIMULATING ###"
 	#@./obj_dir/V$(MODULE) #+verilator+rand+reset+2
