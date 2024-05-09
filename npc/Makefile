@@ -50,7 +50,7 @@ waves: waveform.vcd
 
 
 .PHONY:waveform
-waveform: ./obj_dir/V$(MODULE) run-env
+waveform: run-env
 	@echo
 	@echo "### SIMULATING ###"
 	#@./obj_dir/V$(MODULE) #+verilator+rand+reset+2
