@@ -6,39 +6,23 @@ VSRCS += $(shell find $(abspath ./vsrc/*) -name "*.v")
 INC_PATH = $(NPC_HOME)/include/
 LIBS = -lreadline   # link the <readline> lib
 LIBS += -ldl        # link the <dlfcn> lib
+# LIBS += $(shell llvm-config-11 --libs)
+# CXXFLAGS += $(shell llvm-config-11 --cxxflags) -fPIE
+
+
+
 
 # ifdef CONFIG_DIFFTEST
 DIFF_REF_PATH = $(NEMU_HOME)
 DIFF_REF_SO = $(DIFF_REF_PATH)/build/riscv32-nemu-interpreter-so
 ARGS_DIFF = --diff=$(DIFF_REF_SO)
 
-IMG ?=      #loaded by AM Makefile (npc.mk)
-override ARGS ?= --log=./log/npc-log.txt
-override ARGS += $(ARGS_DIFF)
-BINARY := ./obj_dir/V$(MODULE)
-NEMU_EXEC := $(BINARY) $(ARGS) $(IMG)
+.PHONY: $(DIFF_REF_SO)
+$(DIFF_REF_SO):
+	$(MAKE) -s -C $(DIFF_REF_PATH) 
 
-default: sim
+# endif
 
-sim: 
-	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
-	@rm -rf $(obj_dir)
-	@echo "### sim ###"
-	verilator   -MMD --build --trace  --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS) -I$(INC_PATH)
-	#MMD build 用于链接;trace 使用trace;top-module指定顶层模块;I包含include文件
-	@echo "LIBS +=$(LIBS)" >> ./obj_dir/V$(MODULE).mk    # to link readline library
-	@echo "### run ###"
-	obj_dir/Vrv32 +trace
-	@echo "### wave ###"
-	gtkwave waveform.vcd
-	
-gdb: 
-	$(call git_commit, "gdb RTL") # DO NOT REMOVE THIS LINE!!!
-	@rm -rf $(obj_dir)
-	@echo "### gdb ###"
-	verilator  -MMD --build --trace --gdbbt --debug  --top-module $(MODULE) -cc $(VSRCS) -CFLAGS "-g" --exe $(CSRCS)
-	@echo "### run ###"
-	gdb obj_dir/Vrv32 
 
 
 
@@ -50,7 +34,10 @@ gtkw: uae.gtkw
 
 
 .PHONY:sim
-sim: waveform.vcd
+sim: 
+	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
+	@clean
+	waveform.vcd
 
 
 .PHONY:waves
@@ -66,6 +53,13 @@ waveform.vcd: ./obj_dir/V$(MODULE)
 	@echo "### SIMULATING ###"
 	@./obj_dir/V$(MODULE) #+verilator+rand+reset+2
 
+
+
+IMG ?=      #loaded by AM Makefile (npc.mk)
+override ARGS ?= --log=./log/npc-log.txt
+override ARGS += $(ARGS_DIFF)
+BINARY := ./obj_dir/V$(MODULE)
+NEMU_EXEC := $(BINARY) $(ARGS) $(IMG)
 
 
 .PHONY:run-env
@@ -107,7 +101,7 @@ verilate: .stamp.verilate
 .stamp.verilate: $(VSRCS) $(CSRCS)
 	@echo
 	@echo "### VERILATING ###"
-	verilator --trace --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS) -I$(INC_PATH)
+	verilator -Wno-STMTDLY -Wno-MODDUP --trace --top-module $(MODULE) -cc $(VSRCS) --exe $(CSRCS) -I$(INC_PATH)
 	@echo "LIBS +=$(LIBS)" >> ./obj_dir/V$(MODULE).mk    # to link readline and dlfcn library
 # @echo "CXXFLAGS +=$(CXXFLAGS)" >> ./obj_dir/V$(MODULE).mk 
 	@touch .stamp.verilate

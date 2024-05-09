@@ -57,9 +57,9 @@ module rv32(
   wire[2:0]       funct3;
   wire[6:0]       funct7;
 /* verilator lint_off UNOPTFLAT */
-  wire[`RegBus]   inst;     
+  wire[`RegBus]   inst/* verilator public */;     
 /* verilator lint_off UNOPTFLAT */
-  wire[`RegBus]   pc;     
+  wire[`RegBus]   pc/* verilator public */;     
   wire[`TYPE_BUS] IType;      //inst type
   wire            reg_wen;    //RegFile write enable
   wire            mem_wen;    //mem write enable

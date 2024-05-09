@@ -8,7 +8,8 @@
 #include "../include/common.h"
 #include "../include/utils.h"
 #include "../include/debug.h"
-
+#include "Vrv32_rv32.h"
+#include "Vrv32_register_file.h"
 
 
 VerilatedVcdC* tfp = new VerilatedVcdC(); //导出vcd波形需要加此语句
@@ -47,14 +48,14 @@ extern void ebreak(int station, int inst, char unit)
 {
   if(Verilated::gotFinish())
     return;
-    // Log("maintime = %ld, state = %d, pc = 0x%08x, inst = 0x%08x", main_time, npc_state.state, top->rv32__DOT__pc, top->rv32__DOT__inst);
+    Log("maintime = %ld, state = %d, pc = 0x%08x, inst = 0x%08x", main_time, npc_state.state, top->rv32->pc, top->rv32->inst);
 
   //虽然波形图上inst随pc同时变化，但通过打印二者会发现inst会在pc变化之后才改变（这是因为二者都发生变化了之后才输出至波形图的）
   //然而，这个延时会导致decode错误，然后调用了 “ebreak(`ABORT, inst);”
   if(main_time >= start_time + 1)   // at the begining (main_time < start_time and before the reset), all regs are zeros
   {
-    npc_state.halt_ret = top->rv32__DOT__register_file_inst__DOT__regs[10]; //a0
-    npc_state.halt_pc = top->rv32__DOT__pc;
+    npc_state.halt_ret = top->rv32->register_file_inst->regs[10]; //a0
+    npc_state.halt_pc = top->rv32->pc;
 
     assert( (unit == Unit_ALU) || (unit == Unit_CU1) || (unit == Unit_CU2) || (unit == Unit_CU3) || 
             (unit == Unit_CU4) || (unit == Unit_CU5) || (unit == Unit_CU6) || (unit == Unit_CU7) || 
@@ -62,7 +63,7 @@ extern void ebreak(int station, int inst, char unit)
             (unit == Unit_MEM) || (unit == Unit_IE1) || (unit == Unit_IE2) || (unit == Unit_IE3));
 
     Log("Ebreak takes place in the %s", alu_names[unit]);
-    Log("maintime = %ld, state = %d, pc = 0x%08x, inst = 0x%08x", main_time, npc_state.state, top->rv32__DOT__pc, top->rv32__DOT__inst);
+    Log("maintime = %ld, state = %d, pc = 0x%08x, inst = 0x%08x", main_time, npc_state.state, top->rv32->pc, top->rv32->inst);
 
     switch(station)
     {
@@ -135,6 +136,7 @@ static void reset(void)
 
 static void init_verilator(void)
 {
+  printf("init_verilator\n");
   Verilated::traceEverOn(true); //导出vcd波形需要加此语句
 
   top->trace(tfp, 0);

@@ -14,7 +14,7 @@ module register_file(
 );
 
     integer i;
-    reg[`RegBus] regs[`BitWidth-1 : 0];
+    reg[`RegBus] regs[`BitWidth-1 : 0]/* verilator public */;
 
 
     //wire register
