@@ -83,7 +83,7 @@ build: $(BINARY)
 ./obj_dir/V$(MODULE): .stamp.verilate
 	@echo
 	@echo "### BUILDING SIM ###"
-	make -C obj_dir -f V$(MODULE).mk V$(MODULE)
+	make -C obj_dir -f V$(MODULE).mk V$(MODULE) $(DIFF_REF_PATH) 
 
 
 .PHONY:verilate
