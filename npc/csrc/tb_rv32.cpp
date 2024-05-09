@@ -144,7 +144,6 @@ static void init_verilator(void)
   tfp->open("waveform.vcd"); //打开vcd
 
   reset();  //复位
-  printf("init_verilator\n");
 }
 
 int main(int argc, char *argv[])

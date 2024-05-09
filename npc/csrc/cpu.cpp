@@ -51,9 +51,11 @@ static void execute_once()
     printf("cpu.cpp execute_once \n");
     //观察波形图可以发现，执行reset后第一条指令已经执行了1/3，即取指、译码部分已经完成，此时的pc为当前pc，执行剩下的2/3后pc为dnpc
     PCSet.pc = top->rv32->pc;  PCSet.inst = top->rv32->inst;
-    single_cycle();  //single_cycle();  single_cycle();      // take 3 cycles to excute one instruction
+    printf("top->rv32->pc is 0x%x , top->rv32->inst is 0x%x \n",top->rv32->pc,top->rv32->inst);
+    single_cycle(); 
     PCSet.npc = top->rv32->pc;  PCSet.ninst = top->rv32->inst;
-
+    printf("top->rv32->pc is 0x%x , top->rv32->inst is 0x%x \n",top->rv32->pc,top->rv32->inst);
+    
 #ifdef CONFIG_ITRACE
     char *p = logbuf;
     p += snprintf(p, sizeof(logbuf), "0x%08x: 0x%08x ", PCSet.pc, PCSet.inst);
