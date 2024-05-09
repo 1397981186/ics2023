@@ -53,7 +53,8 @@ waves: waveform.vcd
 waveform.vcd: ./obj_dir/V$(MODULE) run-env
 	@echo
 	@echo "### SIMULATING ###"
-	@./obj_dir/V$(MODULE) #+verilator+rand+reset+2
+	#@./obj_dir/V$(MODULE) #+verilator+rand+reset+2
+	@$(NEMU_EXEC)
 
 
 
