@@ -25,7 +25,10 @@ static int cmd_c(char *args) {
     cpu_exec(-1);
     return 0;
 }
-static int cmd_q(char *args) {return -1;}
+static int cmd_q(char *args) {
+    npc_state.state = NPC_QUIT
+    return -1;}
+    
 static int cmd_help(char *args);
 static int cmd_si(char *args);
 static int cmd_info(char *args);
