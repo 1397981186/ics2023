@@ -96,6 +96,7 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc)
 
 static void checkregs(CPU_state *ref, vaddr_t pc, vaddr_t npc) 
 {
+    printf("difftest.cpp checkregs \n");
     if (!isa_difftest_checkregs(ref, npc)) 
     {
         npc_state.state = NPC_ABORT;
