@@ -43,7 +43,6 @@ VM_USER_LDLIBS = \
 VM_USER_CLASSES = \
 	cpu \
 	difftest \
-	disasm \
 	expr \
 	log \
 	monitor \
@@ -70,8 +69,6 @@ VPATH += $(VM_USER_DIR)
 cpu.o: /home/alemin/Desktop/ics2023/npc/csrc/cpu.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 difftest.o: /home/alemin/Desktop/ics2023/npc/csrc/difftest.cpp
-	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-disasm.o: /home/alemin/Desktop/ics2023/npc/csrc/disasm.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 expr.o: /home/alemin/Desktop/ics2023/npc/csrc/expr.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
