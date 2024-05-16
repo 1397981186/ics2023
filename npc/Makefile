@@ -15,7 +15,8 @@ DIFF_REF_PATH = $(NEMU_HOME)
 DIFF_REF_SO = $(DIFF_REF_PATH)/build/riscv32-nemu-interpreter-so
 ARGS_DIFF = --diff=$(DIFF_REF_SO)
 
-IMG ?=      #loaded by AM Makefile (npc.mk)
+#IMG ?=      #loaded by AM Makefile (npc.mk)
+IMG = dummy-riscv32e-nemu.bin
 override ARGS ?= --log=./log/npc-log.txt
 override ARGS += $(ARGS_DIFF)
 BINARY := ./obj_dir/V$(MODULE)
