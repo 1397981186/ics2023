@@ -23,5 +23,5 @@ image: $(IMAGE).elf
 	
 run: image
 	@echo "run abstract-machine/scripts/platform/npcmk"
-	#$(MAKE) -C /home/alemin/Desktop/ics2023/npc ISA=$(ISA) sim IMG=$(IMAGE).bin
-	make -f /home/alemin/Desktop/ics2023/npc/Makefile sim IMG=$(IMAGE).bin
+	make -C /home/alemin/Desktop/ics2023/npc ISA=$(ISA) sim IMG=$(IMAGE).bin
+	#make -f /home/alemin/Desktop/ics2023/npc/Makefile sim IMG=$(IMAGE).bin
