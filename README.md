@@ -9,7 +9,7 @@
 | div           | nopass                          |                                 |
 | dummy         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | fact          | nopass                          |                                 |
-| fib           | <font color=#008000>pass</font> |                                 |
+| fib           | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | gold-bach     | nopass                          |                                 |
 | hello-str     | nopass                          |                                 |
 | if-else       | nopass                          |                                 |
