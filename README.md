@@ -14,7 +14,7 @@
 | hello-str     | nopass                          |                                 |
 | if-else       | nopass                          |                                 |
 | leap-year     | nopass                          |                                 |
-| load-store    | <font color=#008000>pass</font> |                                 |
+| load-store    | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | matrix-mul    | nopass                          |                                 |
 | max           | <font color=#008000>pass</font> |                                 |
 | mersenne      | nopass                          |                                 |
