@@ -5,9 +5,9 @@
 | ------------- | ------------------------------- | ------------------------------- |
 | add           | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | add-longlong  | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| crc-32        | <font color=#008000>pass</font> |                                 |
+| crc32         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | div           | nopass                          |                                 |
-| dummy         | <font color=#008000>pass</font> |                                 |
+| dummy         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | fact          | nopass                          |                                 |
 | fib           | <font color=#008000>pass</font> |                                 |
 | gold-bach     | nopass                          |                                 |
