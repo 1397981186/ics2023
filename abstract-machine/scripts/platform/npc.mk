@@ -14,7 +14,7 @@ LDFLAGS   += -T $(AM_HOME)/scripts/linker.ld \
 LDFLAGS   += --gc-sections -e _start
 CFLAGS += -DMAINARGS=\"$(mainargs)\"
 .PHONY: $(AM_HOME)/am/src/riscv/npc/trm.c
-include /home/alemin/Desktop/ics2023/npc/Makefile
+#include /home/alemin/Desktop/ics2023/npc/Makefile
 
 image: $(IMAGE).elf
 	@$(OBJDUMP) -d $(IMAGE).elf > $(IMAGE).txt
@@ -23,5 +23,7 @@ image: $(IMAGE).elf
 	
 run: image
 	@echo "run abstract-machine/scripts/platform/npcmk"
-	make -C /home/alemin/Desktop/ics2023/npc ISA=$(ISA) sim IMG=$(IMAGE).bin
+	cd /home/alemin/Desktop/ics2023/npc/&&\
+	pwd&&\
+	make IMG=$(IMAGE).bin sim
 	#make -f /home/alemin/Desktop/ics2023/npc/Makefile sim IMG=$(IMAGE).bin
