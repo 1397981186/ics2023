@@ -81,7 +81,7 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc)
              ANSI_NONE "  dut:0x%08x   ref:0x%08x\n", pc, ref_r->pc);
         success = false;
     }
-
+    printf("success is &d \n",success);
     //check general purpose registers
     for(int i = 0; i < 32; i++)
         if(top_regs[i] != ref_r->gpr[i])
