@@ -26,7 +26,7 @@
 | prime         | nopass                          | <font color=#008000>pass</font> |
 | quick-sort    | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | recursion     | nopass                          | <font color=#008000>pass</font> |
-| select-sort   | <font color=#008000>pass</font> |                                 |
+| select-sort   | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | shift         | <font color=#008000>pass</font> |                                 |
 | shuixianhua   | nopass                          |                                 |
 | string        | nopass                          |                                 |
