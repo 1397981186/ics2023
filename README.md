@@ -8,10 +8,10 @@
 | crc32         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | div           | nopass                          | <font color=#008000>pass</font> |
 | dummy         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| fact          | nopass                          |                                 |
+| fact          | nopass                          | <font color=#008000>pass</font> |
 | fib           | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| goldbach      | nopass                          |                                 |
-| hello-str     | nopass                          |                                 |
+| goldbach      | nopass                          | <font color=#008000>pass</font> |
+| hello-str     | nopass                          | <font color=#008000>pass</font> |
 | if-else       | nopass                          |                                 |
 | leap-year     | nopass                          |                                 |
 | load-store    | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
