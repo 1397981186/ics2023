@@ -35,7 +35,7 @@
 | switch        | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | to-lower-case | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | unalign       | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| wanshu        | nopass                          |                                 |
+| wanshu        | nopass                          | <font color=#008000>pass</font> |
 
 -------以下是原始项目信息-----------
 # ICS2023 Programming Assignment
