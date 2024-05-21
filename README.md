@@ -28,7 +28,7 @@
 | recursion     | nopass                          | <font color=#008000>pass</font> |
 | select-sort   | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | shift         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| shuixianhua   | nopass                          |                                 |
+| shuixianhua   | nopass                          | <font color=#008000>pass</font> |
 | string        | nopass                          |                                 |
 | sub-longlong  | <font color=#008000>pass</font> |                                 |
 | sum           | <font color=#008000>pass</font> |                                 |
