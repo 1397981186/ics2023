@@ -31,7 +31,7 @@
 | shuixianhua   | nopass                          | <font color=#008000>pass</font> |
 | string        | nopass                          | <font color=#008000>pass</font> |
 | sub-longlong  | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| sum           | <font color=#008000>pass</font> |                                 |
+| sum           | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | switch        | <font color=#008000>pass</font> |                                 |
 | to-lower-case | <font color=#008000>pass</font> |                                 |
 | unalign       | <font color=#008000>pass</font> |                                 |
