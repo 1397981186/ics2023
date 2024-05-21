@@ -46,6 +46,7 @@ static const char *alu_names[16] = {
 
 extern void ebreak(int station, int inst, char unit)
 {
+  printf("tv_rv32.cpp ebreak \n");
   if(Verilated::gotFinish())
     return;
   Log("maintime = %ld, state = %d, pc = 0x%08x, inst = 0x%08x", main_time, npc_state.state, top->rv32->pc, top->rv32->inst);
