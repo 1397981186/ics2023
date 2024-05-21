@@ -29,7 +29,7 @@
 | select-sort   | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | shift         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | shuixianhua   | nopass                          | <font color=#008000>pass</font> |
-| string        | nopass                          |                                 |
+| string        | nopass                          | <font color=#008000>pass</font> |
 | sub-longlong  | <font color=#008000>pass</font> |                                 |
 | sum           | <font color=#008000>pass</font> |                                 |
 | switch        | <font color=#008000>pass</font> |                                 |
