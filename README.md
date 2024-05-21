@@ -12,7 +12,7 @@
 | fib           | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | goldbach      | nopass                          | <font color=#008000>pass</font> |
 | hello-str     | nopass                          | <font color=#008000>pass</font> |
-| if-else       | nopass                          |                                 |
+| if-else       | nopass                          | nopass                          |
 | leap-year     | nopass                          |                                 |
 | load-store    | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | matrix-mul    | nopass                          |                                 |
