@@ -23,7 +23,7 @@
 | movsx         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | mul-longlong  | nopass                          | <font color=#008000>pass</font> |
 | pascal        | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| prime         | nopass                          |                                 |
+| prime         | nopass                          | <font color=#008000>pass</font> |
 | quick-sort    | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | recursion     | nopass                          |                                 |
 | select-sort   | <font color=#008000>pass</font> |                                 |
