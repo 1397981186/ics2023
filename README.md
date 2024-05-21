@@ -17,7 +17,7 @@
 | load-store    | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | matrix-mul    | nopass                          | <font color=#008000>pass</font> |
 | max           | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| mersenne      | nopass                          |                                 |
+| mersenne      | nopass                          | <font color=#008000>pass</font> |
 | min3          | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | mov-c         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | movsx         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
