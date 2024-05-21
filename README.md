@@ -10,7 +10,7 @@
 | dummy         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | fact          | nopass                          |                                 |
 | fib           | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| goldbach     | nopass                          |                                 |
+| goldbach      | nopass                          |                                 |
 | hello-str     | nopass                          |                                 |
 | if-else       | nopass                          |                                 |
 | leap-year     | nopass                          |                                 |

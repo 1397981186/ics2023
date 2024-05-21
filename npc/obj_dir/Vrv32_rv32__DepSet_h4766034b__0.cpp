@@ -50,7 +50,30 @@ VL_INLINE_OPT void Vrv32_rv32___ico_sequent__TOP__rv32__0(Vrv32_rv32* vlSelf) {
                     Vrv32_rv32____Vdpiimwrap_mem_inst__DOT__ebreak_TOP__rv32(2U, vlSelf->inst, 0xcU);
                 }
             } else if ((8U & vlSelf->inst)) {
-                Vrv32_rv32____Vdpiimwrap_mem_inst__DOT__ebreak_TOP__rv32(2U, vlSelf->inst, 0xcU);
+                if ((4U & vlSelf->inst)) {
+                    if ((2U & vlSelf->inst)) {
+                        if ((1U & vlSelf->inst)) {
+                            vlSelf->__PVT__IType = 6U;
+                            vlSelf->__PVT__aluc = 0U;
+                            vlSelf->__PVT__reg_wen = 1U;
+                            vlSelf->__PVT__mem_wen = 0U;
+                            vlSelf->__PVT__mem_ren = 0U;
+                            vlSelf->__PVT__wmask = 0xfU;
+                            vlSelf->__PVT__rmask = 0U;
+                            vlSelf->__PVT__m1 = 0U;
+                            vlSelf->__PVT__m2 = 1U;
+                            vlSelf->__PVT__m3 = 1U;
+                            vlSelf->__PVT__m4 = 0U;
+                            vlSelf->__PVT__m5 = 0U;
+                        } else {
+                            Vrv32_rv32____Vdpiimwrap_mem_inst__DOT__ebreak_TOP__rv32(2U, vlSelf->inst, 0xcU);
+                        }
+                    } else {
+                        Vrv32_rv32____Vdpiimwrap_mem_inst__DOT__ebreak_TOP__rv32(2U, vlSelf->inst, 0xcU);
+                    }
+                } else {
+                    Vrv32_rv32____Vdpiimwrap_mem_inst__DOT__ebreak_TOP__rv32(2U, vlSelf->inst, 0xcU);
+                }
             } else if ((4U & vlSelf->inst)) {
                 if ((2U & vlSelf->inst)) {
                     if ((1U & vlSelf->inst)) {
