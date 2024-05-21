@@ -197,20 +197,20 @@ module control_unit(
                 m4      = `MUX4_src1;
                 m5      = `MUX5_PCadd4;
             end            
-            `INST_TYPE_JAL: begin
-                IType   = `INST_J;   
-                aluc    = `ADD;
-                reg_wen = `WEnable;   
-                mem_wen = `WDisen;   
-                mem_ren = `WDisen;   
-                wmask   = `WWord;          // don't care      
-                rmask   = `LoadW;          // don't care      
-                m1      = `MUX1_NBpc;
-                m2      = `MUX2_result;
-                m3      = `MUX3_imm32;
-                m4      = `MUX4_pc;
-                m5      = `MUX5_PCadd4;
-            end
+            //`INST_TYPE_JAL: begin
+            //    IType   = `INST_J;   
+            //    aluc    = `ADD;
+            //    reg_wen = `WEnable;   
+//mem_wen = `WDisen;   
+//mem_ren = `WDisen;   
+//wmask   = `WWord;          // don't care      
+//rmask   = `LoadW;          // don't care      
+//m1      = `MUX1_NBpc;
+//m2      = `MUX2_result;
+//m3      = `MUX3_imm32;
+//m4      = `MUX4_pc;
+//m5      = `MUX5_PCadd4;
+//end
             `INST_TYPE_E: begin
                 case ({fun7_31_25, rs2_24_20})
                     `INST_EBREAK: ebreak(`HIT_TRAP, inst, `Unit_CU9);
