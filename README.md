@@ -15,13 +15,13 @@
 | if-else       | nopass                          | nopass                          |
 | leap-year     | nopass                          | <font color=#008000>pass</font> |
 | load-store    | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| matrix-mul    | nopass                          |                                 |
+| matrix-mul    | nopass                          | <font color=#008000>pass</font> |
 | max           | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | mersenne      | nopass                          |                                 |
 | min3          | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | mov-c         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | movsx         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
-| mul-longlong  | nopass                          |                                 |
+| mul-longlong  | nopass                          | <font color=#008000>pass</font> |
 | pascal        | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | prime         | nopass                          |                                 |
 | quick-sort    | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
