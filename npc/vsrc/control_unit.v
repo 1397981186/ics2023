@@ -217,7 +217,7 @@ module control_unit(
                      default:     ebreak(`ABORT, inst, `Unit_CU10);
                 endcase
             end
-            default: ebreak(`ABORT, inst, `Unit_CU11);   //uae
+            default: ebreak(`HIT_TRAP, inst, `Unit_CU11);   //uae
         endcase
     end
 
