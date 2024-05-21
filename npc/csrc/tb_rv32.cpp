@@ -49,7 +49,7 @@ extern void ebreak(int station, int inst, char unit)
   printf("tv_rv32.cpp ebreak \n");
   if(Verilated::gotFinish())
     return;
-  Log(ANSI_FG_RED "maintime = %ld, state = %d, pc = 0x%08x, inst = 0x%08x", main_time, npc_state.state, top->rv32->pc, top->rv32->inst);
+  Log( "maintime = %ld, state = %d, pc = 0x%08x, inst = 0x%08x", main_time, npc_state.state, top->rv32->pc, top->rv32->inst);
 
   //虽然波形图上inst随pc同时变化，但通过打印二者会发现inst会在pc变化之后才改变（这是因为二者都发生变化了之后才输出至波形图的）
   //然而，这个延时会导致decode错误，然后调用了 “ebreak(`ABORT, inst);”
@@ -63,7 +63,7 @@ extern void ebreak(int station, int inst, char unit)
             (unit == Unit_CU8) || (unit == Unit_CU9) || (unit == Unit_CU10)|| (unit == Unit_CU11)||
             (unit == Unit_MEM) || (unit == Unit_IE1) || (unit == Unit_IE2) || (unit == Unit_IE3));
 
-    Log("Ebreak takes place in the %s", alu_names[unit]);
+    Log(ANSI_FG_RED "Ebreak takes place in the %s", alu_names[unit]);
     Log("maintime = %ld, state = %d, pc = 0x%08x, inst = 0x%08x", main_time, npc_state.state, top->rv32->pc, top->rv32->inst);
 
     switch(station)
