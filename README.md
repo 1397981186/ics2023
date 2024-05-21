@@ -22,7 +22,7 @@
 | mov-c         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | movsx         | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | mul-longlong  | nopass                          |                                 |
-| pascal        | <font color=#008000>pass</font> |                                 |
+| pascal        | <font color=#008000>pass</font> | <font color=#008000>pass</font> |
 | prime         | nopass                          |                                 |
 | quick-sort    | <font color=#008000>pass</font> |                                 |
 | recursion     | nopass                          |                                 |
